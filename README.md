@@ -1,6 +1,6 @@
 # Final-Project
 
-#Teniola Ogunlaja
+#Teniola O
 
 #Sasha Andia
 

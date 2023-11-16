@@ -1,4 +1,5 @@
 import './styles/Navigation.scss'
+import './styles/Footer.scss'
 import './styles/App.scss'
 import './styles/partials/_mixins.scss'
 

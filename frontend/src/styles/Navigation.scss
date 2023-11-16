@@ -43,9 +43,12 @@ button {
 
 .nav-btns {
   display: flex;
+  align-items: center;
 }
 
 .nav-btn {
+  height: 50px;
+
   margin: 10px;
   padding: 12px 18px;
 }

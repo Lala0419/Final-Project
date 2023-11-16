@@ -9,23 +9,27 @@ function Navigation() {
 
   return (
     <nav>
-      <img className='logo__image' src={logo} />
 
-      <div className='social-btns'>
-        <button>
-          <FaFacebookF />
-        </button>
-        <button>
-          <FaRegEnvelope />
-        </button>
+      <div className='nav-left'>
+        <img className='logo__image' src={logo} alt='Logo for Property Brothers'/>
+
+        <div className='social-btns'>
+          <button className='social-btn'>
+            <FaFacebookF />
+          </button>
+          <button className='social-btn'>
+            <FaRegEnvelope />
+          </button>
+        </div>
       </div>
+      
 
-      <div className='nav-btns'>
-        <button>Phone Number</button>
-        <button>Home</button>
-        <button>About</button>
-        <button>Services</button>
-        <button>Free Estimate</button>
+      <div className='nav-btns nav-right'>
+        <button className='nav-btn'>Phone Number</button>
+        <button className='nav-btn'>Home</button>
+        <button className='nav-btn'>About</button>
+        <button className='nav-btn'>Services</button>
+        <button className='nav-btn'>Free Estimate</button>
       </div>
     </nav>
   );

@@ -89,15 +89,16 @@
 	transition: ease-out;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
-	background-color: rgba(160, 148, 64, 0.8); //for buttons in body
+	background-color: rgba(160, 148, 64); //for buttons in body
 	/* background-color: none?  //for nav and footer */
 
 	&:hover {
-		box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-			0 4px 6px -4px rgb(0 0 0 / 0.1);
+		box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2),
+			0 4px 6px -4px rgb(0 0 0 / 0.2);
+		background-color: rgb(206, 187, 43);
 	}
 
 	&:active {
-		background-color: rgba(247, 221, 28, 0.8);
+		background-color: rgb(198, 168, 50);
 	}
 }

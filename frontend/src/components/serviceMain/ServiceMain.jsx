@@ -25,7 +25,7 @@ function ServiceMain() {
 					of the year.
 				</p>
 				<ServiceCard />
-				<span className="serviceMain_bottom-button">SEE MORE WORK</span>
+				<span className="serviceMain_bottom-button">SEE MORE SERVICES</span>
 			</div>
 		</div>
 	);

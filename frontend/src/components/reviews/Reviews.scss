@@ -1,0 +1,27 @@
+@use "../../styles/partials/index" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+
+.reviews {
+	&_top {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background: url("../../assets/home_reviews.jpeg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 400px;
+		color: $color-primary-light;
+		text-align: center;
+		box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+
+		&-header {
+			@include mobile-text-page-header;
+			font-size: 3rem;
+			line-height: 40px;
+			padding: 0 1rem;
+			margin: 2rem 0;
+		}
+	}
+}

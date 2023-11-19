@@ -1,10 +1,10 @@
 import React from "react";
 import "./ServiceMain.scss";
-//import ServiceCard from "../serviceCard/ServiceCard";
+import ServiceCard from "../serviceCard/ServiceCard";
 
 function ServiceMain() {
 	return (
-		<ServiceMain className="serviceMain">
+		<div className="serviceMain">
 			<div className="serviceMain_top">
 				<h2 className="serviceMain_top-header">JOIN THE FAMILY</h2>
 				{/* <h2 className="serviceMain_top-serviceMain serviceMain_top-serviceMain_2">
@@ -24,10 +24,10 @@ function ServiceMain() {
 					that will ensure your home maintains its beauty throughout the course
 					of the year.
 				</p>
-				{/* <ServiceCard /> */}
-				<span className="serviceMain_bottom-button">See more work</span>
+				<ServiceCard />
+				<span className="serviceMain_bottom-button">SEE MORE WORK</span>
 			</div>
-		</ServiceMain>
+		</div>
 	);
 }
 

@@ -6,7 +6,7 @@ function ServiceCard(props) {
 		<div className="card">
 			<h2 className="card_title">{props.title}</h2>
 			<p className="card_subtitle">{props.subtitle}</p>
-			<p className="card_desc">{props.desc}</p>
+			{/* <p className="card_desc">{props.desc}</p> */}
 			<div className="card_imgs">
 				<div className="card_imgs-item">
 					<span className="card_imgs-item--caption">Before</span>

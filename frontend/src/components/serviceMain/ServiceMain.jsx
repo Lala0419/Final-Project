@@ -1,6 +1,8 @@
 import React from "react";
 import "./ServiceMain.scss";
-import ServiceCard from "../serviceCard/ServiceCard";
+import ServiceCard from "../../components/serviceCard/ServiceCard";
+import service_test_before from "../../assets/service_test_before.jpeg";
+import service_test_after from "../../assets/service_test_after.jpeg";
 
 function ServiceMain() {
 	return (
@@ -24,7 +26,27 @@ function ServiceMain() {
 					that will ensure your home maintains its beauty throughout the course
 					of the year.
 				</p>
-				<ServiceCard />
+				<ServiceCard
+					title="Window Washing"
+					subtitle=""
+					desc="We don't only wash the window, this also includes a scrub of the entire frame and all the seals and sills."
+					img_before_url={service_test_before}
+					img_after_url={service_test_after}
+				/>
+				<ServiceCard
+					title="Soft Wash of Siding"
+					subtitle="(Vinyl, Hardy board, Aluminum, Wood, etc…)"
+					desc="We use nylon tip, water-fed brushes. This keeps the water pressure low. Comparatively to pressure washing, all the pressure comes from us scrubbing. A deep, detailed wash that maintains your sidings durability."
+					img_before_url={service_test_before}
+					img_after_url={service_test_after}
+				/>
+				<ServiceCard
+					title="Gutter Cleaning"
+					subtitle="(Eavestroughs)"
+					desc="We don't only wash the window, this also includes a scrub of the entire frame and all the seals and sills."
+					img_before_url={service_test_before}
+					img_after_url={service_test_after}
+				/>
 				<span className="serviceMain_bottom-button">SEE MORE SERVICES</span>
 			</div>
 		</div>

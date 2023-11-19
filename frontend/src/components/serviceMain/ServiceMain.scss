@@ -34,6 +34,7 @@
 
 		&-button {
 			margin-top: 4rem;
+			@include mobile-text-buttons;
 			@include button;
 		}
 	}
@@ -56,6 +57,13 @@
 			@include mobile-text-body-footer;
 			line-height: 2.5rem;
 			padding: 2.5rem;
+		}
+
+		&-button {
+			@include mobile-text-buttons;
+			font-weight: 500;
+			@include button;
+			color: $color-primary-light;
 		}
 	}
 }

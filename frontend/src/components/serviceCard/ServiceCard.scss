@@ -1,0 +1,53 @@
+@use "../../styles/partials/index" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 360px;
+	margin: 2rem 0;
+	border-radius: 8px;
+	padding: 1rem;
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+	&_title {
+		@include mobile-text-section-header;
+		margin: 1rem 0 0.5rem 0;
+	}
+
+	&_subtitle {
+		@include mobile-text-buttons;
+		font-size: 1.4rem;
+	}
+
+	&_desc {
+		@include mobile-text-body-footer;
+		margin: 1.5rem 1rem;
+		text-align: center;
+	}
+
+	&_imgs {
+		display: flex;
+		flex-direction: row;
+
+		&-item {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			@include mobile-text-body-footer;
+
+			&--caption {
+				padding: 1rem;
+			}
+
+			&--img {
+				margin: 1rem;
+				height: 17rem;
+				width: 15rem;
+			}
+		}
+	}
+}

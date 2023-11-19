@@ -3,7 +3,7 @@ import "./Header.scss";
 
 function Header() {
 	return (
-		<header class="header">
+		<div class="header">
 			<div class="header_top">
 				<h2 class="header_top-header">CLEANING YOUR PROPERTY,</h2>
 				<h2 class="header_top-header header_top-header_2">MADE SIMPLE</h2>
@@ -21,7 +21,7 @@ function Header() {
 					companion for your home.
 				</p>
 			</div>
-		</header>
+		</div>
 	);
 }
 

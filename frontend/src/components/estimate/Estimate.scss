@@ -6,7 +6,7 @@
   margin: 2rem;
 
   &_title {
-    @include tablet-desk-text-page-header;
+    @include mobile-text-page-header;
   }
 
   &_form {

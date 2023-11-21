@@ -7,7 +7,7 @@ function Reviews() {
 			<div className="reviews">
 				<div className="reviews_top">
 					<h2 className="reviews_top-header">OUR MOTIVATION</h2>
-					<p class="header_top-subtitle">
+					<p className="header_top-subtitle">
 						Your feedbacks motivate us to improve our servies!
 					</p>
 				</div>

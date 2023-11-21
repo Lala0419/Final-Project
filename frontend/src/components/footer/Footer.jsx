@@ -1,5 +1,8 @@
 import React from "react";
 
+import './Footer.scss'
+
+
 import { FaRegEnvelope } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 

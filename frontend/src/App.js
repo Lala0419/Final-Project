@@ -1,17 +1,18 @@
-import './styles/Navigation.scss'
-import './styles/Footer.scss'
-import './styles/App.scss'
-import './styles/partials/_mixins.scss'
-
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
+import EstimatePage from './pages/estimatePage/EstimatePage';
+import Home from './pages/home/Home';
+import Footer from './components/footer/Footer';
+import Navigation from './components/navigation/Navigation';
 
 function App() {
 	return (
 		<div className="App">
 			<Navigation />
 
+			<Home />
+    	<EstimatePage />
+
 			<Footer />
+
 		</div>
 	)
 }

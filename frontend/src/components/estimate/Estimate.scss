@@ -1,0 +1,40 @@
+@use '../../styles/partials/index' as *;
+@use '../../styles/partials/breakpoints' as breakpoints;
+
+.estimate {
+  font-family: Helvetica, sans-serif;
+  margin: 2rem;
+
+  &_title {
+    @include mobile-text-page-header;
+  }
+
+  &_form {
+    margin: 3rem 2rem;
+
+    &_label {
+      color: #737373;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+
+      &-muted {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+.form-control {
+  padding: 1rem;
+  border: 2px solid #bdbdbd;
+  border-radius: 0;
+}
+.text-area {
+  height: 10rem;
+  resize: none;
+}
+
+.btn {
+  font-size: 1.75rem;
+  padding: 12px;
+}

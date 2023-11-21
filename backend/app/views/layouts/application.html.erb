@@ -5,7 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+<!-- app/views/layouts/application.html.erb -->
+<head>
+  <!-- existing code... -->
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+  <!-- Add these lines for Bootstrap -->
+  <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' %>
+  <%= javascript_include_tag 'https://code.jquery.com/jquery-3.2.1.slim.min.js' %>
+  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' %>
+  <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' %>
+</head>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
   </head>

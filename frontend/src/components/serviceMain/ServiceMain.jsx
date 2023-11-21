@@ -40,13 +40,41 @@ function ServiceMain() {
 					img_before_url={service_test_before}
 					img_after_url={service_test_after}
 				/>
+
+				<ServiceCard
+					title="Moss Removal and Treatment"
+					subtitle=""
+					desc="With the amount of moisture and shade we receive here in BC, moss on roofs is almost a given, and over growth can be detrimental. Our 3-part specialized process ensures the removal and control of moss, while maintaining the durability of your roof. Give us a call to hear how!"
+					img_before_url={service_test_before}
+					img_after_url={service_test_after}
+				/>
+				{/* 
+
+					//use when upgrade each card to be clickable. see more details, slides on before&after photos and maybe click each pucture to zoom in
+				
 				<ServiceCard
 					title="Gutter Cleaning"
 					subtitle="(Eavestroughs)"
 					desc="We don't only wash the window, this also includes a scrub of the entire frame and all the seals and sills."
 					img_before_url={service_test_before}
 					img_after_url={service_test_after}
+				
+				<ServiceCard
+					title="Fascia/Trim/Soffit Cleaning"
+					subtitle=""
+					desc="These areas of the home are often grungy and can get covered in algae over time. Our brushes allow us to hit even the toughest angles and scrub these surfaces clean."
+					img_before_url={service_test_before}
+					img_after_url={service_test_after}
 				/>
+				<ServiceCard
+					title="Roof Cleaning"
+					subtitle=""
+					desc="It's not easy moving around a roof. As the seasons change, the amount of debris and leaves that accumulate on a roof can be frustrating to look at. That's where we come in."
+					img_before_url={service_test_before}
+					img_after_url={service_test_after}
+				/>
+			 */}
+
 				<span className="serviceMain_bottom-button">SEE MORE SERVICES</span>
 			</div>
 		</div>

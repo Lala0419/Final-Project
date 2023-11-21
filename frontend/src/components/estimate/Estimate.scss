@@ -17,6 +17,13 @@
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
 
+      &_bold {
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #4e4e4e;
+      }
+
       &-muted {
         font-size: 0.95rem;
       }
@@ -37,4 +44,18 @@
 .btn {
   font-size: 1.75rem;
   padding: 12px;
+}
+
+.form-check {
+  margin-bottom: 1rem;
+
+  &-label {
+    color: #737373;
+    font-size: 1.5rem;
+    margin-left: 0.25rem;
+    margin-right: 1rem;
+  }
+  &-input {
+    accent-color: #afafaf;
+  }
 }

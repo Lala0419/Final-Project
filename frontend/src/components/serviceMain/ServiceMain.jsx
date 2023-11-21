@@ -3,6 +3,7 @@ import "./ServiceMain.scss";
 import ServiceCard from "../../components/serviceCard/ServiceCard";
 import service_test_before from "../../assets/service_test_before.jpeg";
 import service_test_after from "../../assets/service_test_after.jpeg";
+import { Link } from "react-router-dom";
 
 function ServiceMain() {
 	return (
@@ -15,7 +16,9 @@ function ServiceMain() {
 				<p className="serviceMain_top-subtitle">
 					Find out what we can do for YOU
 				</p>
-				<span className="serviceMain_top-button">GET A FREE QUOTE TODAY</span>
+				<Link to="/free-estimate" className="serviceMain_top-button-box">
+					<span className="serviceMain_top-button">GET A FREE QUOTE TODAY</span>
+				</Link>
 			</div>
 			<div className="serviceMain_bottom">
 				<h4 className="serviceMain_bottom-title">Our Services</h4>
@@ -74,8 +77,9 @@ function ServiceMain() {
 					img_after_url={service_test_after}
 				/>
 			 */}
-
-				<span className="serviceMain_bottom-button">SEE MORE SERVICES</span>
+				<Link to="/services" className="serviceMain_bottom-button-box">
+					<span className="serviceMain_bottom-button">SEE MORE SERVICES</span>
+				</Link>
 			</div>
 		</div>
 	);

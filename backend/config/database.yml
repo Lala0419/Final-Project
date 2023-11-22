@@ -7,14 +7,26 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: labber
-  password: labber
+  # username: labber
+  # password: labber
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
   <<: *default
-  database: property_brothers
+  database: <%= ENV.fetch("database") %>
+  username: <%= ENV.fetch("username") %>
+  password: <%= ENV.fetch("password") %>
+  host: <%= ENV.fetch("host") %>
+  port: 5432
+
+# development:
+#   <<: *default
+#   database: fntxlvdh
+#   username: fntxlvdh
+#   password: x-N1ctIxpAN428DdJqmnyagp9y4XezsN
+#   host: bubble.db.elephantsql.com
+#   port: 5432
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

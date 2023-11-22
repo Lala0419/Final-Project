@@ -11,7 +11,7 @@
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
-		height: 600px;
+		height: 400px;
 		color: $color-primary-light;
 		text-align: center;
 		box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
@@ -32,8 +32,12 @@
 			line-height: 3rem;
 		}
 
-		&-button {
+		&-button-box {
 			margin-top: 4rem;
+			color: $color-primary-light;
+		}
+
+		&-button {
 			@include mobile-text-buttons;
 			@include button;
 		}
@@ -60,12 +64,15 @@
 			padding: 2.5rem;
 		}
 
+		&-button-box {
+			margin: 2rem 0 3rem 0;
+		}
+
 		&-button {
 			@include mobile-text-buttons;
 			font-weight: 500;
 			@include button;
 			color: $color-primary-light;
-			margin: 2rem;
 		}
 	}
 }

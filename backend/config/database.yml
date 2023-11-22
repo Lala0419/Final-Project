@@ -7,10 +7,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  database: property_brothers
   username: labber
   password: labber
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   <<: *default
@@ -21,8 +21,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: property_brothers
+  database: db/test.sqlite3
 
 production:
   <<: *default
-  database: property_brothers
+  database: db/production.sqlite3

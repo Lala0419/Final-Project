@@ -85,11 +85,11 @@ details,
 embed,
 figure,
 figcaption,
-footer,
+/* removed footer */
 header,
 hgroup,
 menu,
-nav,
+/* removed nav and added to Navigation.scss */
 output,
 ruby,
 section,
@@ -109,11 +109,11 @@ aside,
 details,
 figcaption,
 figure,
-footer,
+/* removed footer */
 header,
 hgroup,
 menu,
-nav,
+/* removed nav */
 section {
 	display: block;
 }

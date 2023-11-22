@@ -7,13 +7,16 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # username: labber
-  # password: labber
+  username: labber
+  password: labber
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
   <<: *default
+  # database: property_brothers
+  # username: labber
+  # password: labber
   database: <%= ENV.fetch("database") %>
   username: <%= ENV.fetch("username") %>
   password: <%= ENV.fetch("password") %>

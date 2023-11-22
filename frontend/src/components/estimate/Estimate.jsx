@@ -4,12 +4,61 @@ import axios from "axios";
 
 const Estimate = () => {
 	const [post, setPost] = useState([]);
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [phoneNum, setPhoneNum] = useState("");
+	const [adress, setAdress] = useState("");
+	const [email, setEmail] = useState("");
+	const [additionalInfo, setAdditionalInfo] = useState("");
+	const [hasErrorMessage, setHasErrorMessage] = useState(false);
+	// const [selectedOption, setSelectedOption] = useState(null);
+
+	// const handleOption = (selectedOption) => {
+	// 	setSelectedOption(selectedOption);
+	// };
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		axios.post("http://localhost:3003/api/v1/customers").then((res) => {
-			setPost(post, res.data);
-		});
+		if (
+			!firstName ||
+			!lastName ||
+			!phoneNum ||
+			!adress ||
+			!email ||
+			// !selectedOption ||
+			!additionalInfo
+		) {
+			setHasErrorMessage(true);
+			setTimeout(() => {
+				setHasErrorMessage(false);
+			}, 2000);
+		} else {
+			setHasErrorMessage(false);
+			setPost({
+				firstName,
+				lastName,
+				phoneNum,
+				adress,
+				email,
+				// service: selectedOption.value,
+				additionalInfo,
+			});
+		}
+
+		axios
+			.post("http://localhost:3003/api/v1/customers", {
+				firstName,
+				lastName,
+				phoneNum,
+				adress,
+				email,
+				// service: selectedOption.value,
+				additionalInfo,
+			})
+			.then((res) => {
+				console.log(`setPost ${setPost(post, res.data)}`);
+				setPost(post, res.data);
+			});
 	};
 
 	return (
@@ -28,7 +77,8 @@ const Estimate = () => {
 							<input
 								type="text"
 								className="form-control form-control-lg"
-								value="first_name"
+								value={firstName}
+								onChange={(e) => setFirstName(e.target.value)}
 							/>
 						</div>
 						<div className="form-group col">
@@ -38,7 +88,8 @@ const Estimate = () => {
 							<input
 								type="text"
 								className="form-control form-control-lg"
-								value="last_name"
+								value={lastName}
+								onChange={(e) => setLastName(e.target.value)}
 							/>
 						</div>
 					</div>
@@ -50,7 +101,8 @@ const Estimate = () => {
 					<input
 						type="number"
 						className="form-control form-control-lg"
-						value="phone_number"
+						value={phoneNum}
+						onChange={(e) => setPhoneNum(e.target.value)}
 					/>
 				</div>
 				<div className="form-group">
@@ -61,7 +113,8 @@ const Estimate = () => {
 					<input
 						type="text"
 						className="form-control form-control-lg"
-						value="house_address"
+						value={adress}
+						onChange={(e) => setAdress(e.target.value)}
 					/>
 				</div>
 				<div className="form-group">
@@ -72,7 +125,8 @@ const Estimate = () => {
 					<input
 						type="email"
 						className="form-control form-control-lg"
-						value="email_address"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
 					/>
 				</div>
 
@@ -80,7 +134,7 @@ const Estimate = () => {
 					Select which service(s) you want:
 				</p>
 				<div className="form-check form-check-inline">
-					<input
+					{/* <input
 						className="form-check-input"
 						type="checkbox"
 						value="Window Washing"
@@ -143,7 +197,7 @@ const Estimate = () => {
 					/>
 					<label className="form-check-label" htmlFor="service_6">
 						Moss Removal and Treatment
-					</label>
+					</label> */}
 				</div>
 
 				<div className="form-group">
@@ -154,10 +208,13 @@ const Estimate = () => {
 					<textarea
 						type="text"
 						className="form-control text-area"
-						value="additional_info"
+						value={additionalInfo}
+						onChange={(e) => setAdditionalInfo(e.target.value)}
 					></textarea>
 				</div>
-
+				{hasErrorMessage && (
+					<p className="text__error">This field can not be empty!</p>
+				)}
 				<button type="submit" className="btn btn-dark btn-lg">
 					Submit
 				</button>

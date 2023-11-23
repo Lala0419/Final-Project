@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Estimate.scss";
 import axios from "axios";
-import AsyncSelect from "react-select/async";
 import Select from "react-select";
 
 //SET THEM IN YOUR .ENV FILE

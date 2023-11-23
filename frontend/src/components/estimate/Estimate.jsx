@@ -16,7 +16,8 @@ const Estimate = () => {
 	const [email, setEmail] = useState("");
 	const [additionalInfo, setAdditionalInfo] = useState("");
 	const [hasErrorMessage, setHasErrorMessage] = useState(false);
-	const [selectedOption, setSelectedOption] = useState(null);
+	const [selectedOption, setSelectedOption] = useState([]);
+	const [service, setService] = useState("");
 
 	const options = [
 		{ value: "Window Washing", label: "Window washing" },
@@ -30,9 +31,17 @@ const Estimate = () => {
 		{ value: "Roof Cleaning", label: "Roof Cleaning" },
 	];
 
-	const handleOption = (selectedOption) => {
-		setSelectedOption(selectedOption);
+	const handleOption = (service) => {
+		console.log("selectedOption", service.value);
+		const newSelectedOptions = [...selectedOption];
+		newSelectedOptions.push(service.value);
+		setSelectedOption(newSelectedOptions);
 	};
+
+	// const handleOption = (selectedOption) => {
+	// 	console.log("selectedOption", selectedOption.value);
+	// 	setSelectedOption(selectedOption.value);
+	// };
 
 	const loadOptions = (searchValue, callback) => {
 		setTimeout(() => {
@@ -69,7 +78,7 @@ const Estimate = () => {
 					phone_number: phoneNum,
 					home_address: address,
 					email_address: email,
-					//need to add the options for services
+					service: selectedOption,
 					additional_info: additionalInfo,
 				},
 				// setPost({
@@ -181,76 +190,13 @@ const Estimate = () => {
 				</p>
 				<div className="form-check form-check-inline">
 					<AsyncSelect
-						defaultValue={selectedOption}
+						defaultValue={service}
+						// defaultValue={selectedOption}
 						onChange={handleOption}
 						loadOptions={loadOptions}
 						defaultOptions
 						className="form-check_options"
 					/>
-					{/* <input
-						className="form-check-input"
-						type="checkbox"
-						value="Window Washing"
-						id="service_1"
-					/>
-					<label className="form-check-label" htmlFor="service_1">
-						Window Washing
-					</label>
-				</div>
-				<div className="form-check form-check-inline">
-					<input
-						className="form-check-input"
-						type="checkbox"
-						value="Siding Soft Wash"
-						id="service_2"
-					/>
-					<label className="form-check-label" htmlFor="service_2">
-						Siding Soft Wash
-					</label>
-				</div>
-				<div className="form-check form-check-inline">
-					<input
-						className="form-check-input"
-						type="checkbox"
-						value="Gutter Cleaning"
-						id="service_3"
-					/>
-					<label className="form-check-label" htmlFor="service_3">
-						Gutter Cleaning
-					</label>
-				</div>
-				<div className="form-check form-check-inline">
-					<input
-						className="form-check-input"
-						type="checkbox"
-						value="Fascia/Trim/Soffit Cleaning"
-						id="service_4"
-					/>
-					<label className="form-check-label" htmlFor="service_4">
-						Fascia/Trim/Soffit Cleaning
-					</label>
-				</div>
-				<div className="form-check form-check-inline">
-					<input
-						className="form-check-input"
-						type="checkbox"
-						value="Roof Cleaning"
-						id="service_5"
-					/>
-					<label className="form-check-label" htmlFor="service_5">
-						Roof Cleaning
-					</label>
-				</div>
-				<div className="form-check form-check-inline">
-					<input
-						className="form-check-input"
-						type="checkbox"
-						value="Moss Removal and Treatment"
-						id="service_6"
-					/>
-					<label className="form-check-label" htmlFor="service_6">
-						Moss Removal and Treatment
-					</label> */}
 				</div>
 
 				<div className="form-group">

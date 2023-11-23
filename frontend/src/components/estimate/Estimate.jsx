@@ -3,12 +3,16 @@ import "./Estimate.scss";
 import axios from "axios";
 import AsyncSelect from "react-select/async";
 
+//SET THEM IN YOUR .ENV FILE
+const URL = process.env.REACT_APP_BACKEND_URL;
+const PORT = process.env.REACT_APP_PORT;
+
 const Estimate = () => {
 	const [post, setPost] = useState([]);
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [phoneNum, setPhoneNum] = useState("");
-	const [adress, setAdress] = useState("");
+	const [address, setAddress] = useState("");
 	const [email, setEmail] = useState("");
 	const [additionalInfo, setAdditionalInfo] = useState("");
 	const [hasErrorMessage, setHasErrorMessage] = useState(false);
@@ -46,7 +50,7 @@ const Estimate = () => {
 			!firstName ||
 			!lastName ||
 			!phoneNum ||
-			!adress ||
+			!address ||
 			!email ||
 			!selectedOption ||
 			!additionalInfo
@@ -57,30 +61,50 @@ const Estimate = () => {
 			}, 2000);
 		} else {
 			setHasErrorMessage(false);
-			setPost({
-				firstName,
-				lastName,
-				phoneNum,
-				adress,
-				email,
-				service: selectedOption.value,
-				additionalInfo,
-			});
-		}
+			//we need to wrap the info under a customer key beacuse the customer controller needs it to be nested like this.
+			const customerData = {
+				customer: {
+					first_name: firstName,
+					last_name: lastName,
+					phone_number: phoneNum,
+					home_address: address,
+					email_address: email,
+					//need to add the options for services
+					additional_info: additionalInfo,
+				},
+				// setPost({
+				// 	firstName,
+				// 	lastName,
+				// 	phoneNum,
+				// 	address,
+				// 	email,
+				// 	service: selectedOption.value,
+				// 	additionalInfo,
+				// });
+			};
 
-		axios
-			.post("http://localhost:3003/api/v1/customers", {
-				firstName,
-				lastName,
-				phoneNum,
-				adress,
-				email,
-				service: selectedOption.value,
-				additionalInfo,
-			})
-			.then((res) => {
-				setPost(post, res.data);
-			});
+			axios
+				.post(`${URL}${PORT}/api/v1/customers`, customerData)
+				.then((res) => {
+					setPost(res.data);
+				})
+				.catch((error) => {
+					console.error("Error", error);
+				});
+		}
+		// axios
+		// 	.post("http://localhost:3003/api/v1/customers", {
+		// 		firstName,
+		// 		lastName,
+		// 		phoneNum,
+		// 		address,
+		// 		email,
+		// 		service: selectedOption.value,
+		// 		additionalInfo,
+		// 	})
+		// 	.then((res) => {
+		// 		setPost(post, res.data);
+		// 	});
 	};
 
 	return (
@@ -135,8 +159,8 @@ const Estimate = () => {
 					<input
 						type="text"
 						className="form-control form-control-lg"
-						value={adress}
-						onChange={(e) => setAdress(e.target.value)}
+						value={address}
+						onChange={(e) => setAddress(e.target.value)}
 					/>
 				</div>
 				<div className="form-group">

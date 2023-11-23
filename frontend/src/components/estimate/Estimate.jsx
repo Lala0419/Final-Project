@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Estimate.scss";
 import axios from "axios";
+import AsyncSelect from "react-select/async";
 
 const Estimate = () => {
 	const [post, setPost] = useState([]);
@@ -11,11 +12,33 @@ const Estimate = () => {
 	const [email, setEmail] = useState("");
 	const [additionalInfo, setAdditionalInfo] = useState("");
 	const [hasErrorMessage, setHasErrorMessage] = useState(false);
-	// const [selectedOption, setSelectedOption] = useState(null);
+	const [selectedOption, setSelectedOption] = useState(null);
 
-	// const handleOption = (selectedOption) => {
-	// 	setSelectedOption(selectedOption);
-	// };
+	const options = [
+		{ value: "Window Washing", label: "Window washing" },
+		{ value: "Mos Removal and Treatment", label: "Mos Removal and Treatment" },
+		{ value: "Soft Wash of Siding", label: "Soft Wash of Siding" },
+		{ value: "Gutter Cleaning", label: "Gutter Cleaning" },
+		{
+			value: "Fascia/Trim/Soffit Cleaning",
+			label: "Fascia/Trim/Soffit Cleaning",
+		},
+		{ value: "Roof Cleaning", label: "Roof Cleaning" },
+	];
+
+	const handleOption = (selectedOption) => {
+		setSelectedOption(selectedOption);
+	};
+
+	const loadOptions = (searchValue, callback) => {
+		setTimeout(() => {
+			const filteredOptions = options.filter((option) =>
+				option.label.toLowerCase().includes(searchValue.toLowerCase())
+			);
+			console.log("loadOptions", searchValue, filteredOptions);
+			callback(filteredOptions);
+		}, 2000);
+	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -25,7 +48,7 @@ const Estimate = () => {
 			!phoneNum ||
 			!adress ||
 			!email ||
-			// !selectedOption ||
+			!selectedOption ||
 			!additionalInfo
 		) {
 			setHasErrorMessage(true);
@@ -40,7 +63,7 @@ const Estimate = () => {
 				phoneNum,
 				adress,
 				email,
-				// service: selectedOption.value,
+				service: selectedOption.value,
 				additionalInfo,
 			});
 		}
@@ -52,11 +75,10 @@ const Estimate = () => {
 				phoneNum,
 				adress,
 				email,
-				// service: selectedOption.value,
+				service: selectedOption.value,
 				additionalInfo,
 			})
 			.then((res) => {
-				console.log(`setPost ${setPost(post, res.data)}`);
 				setPost(post, res.data);
 			});
 	};
@@ -134,6 +156,13 @@ const Estimate = () => {
 					Select which service(s) you want:
 				</p>
 				<div className="form-check form-check-inline">
+					<AsyncSelect
+						defaultValue={selectedOption}
+						onChange={handleOption}
+						loadOptions={loadOptions}
+						defaultOptions
+						className="form-check_options"
+					/>
 					{/* <input
 						className="form-check-input"
 						type="checkbox"

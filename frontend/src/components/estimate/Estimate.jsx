@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './Estimate.scss';
 import axios from 'axios';
+import Select from 'react-select';
 
 //SET THEM IN YOUR .ENV FILE
 const URL = process.env.REACT_APP_BACKEND_URL;
 const PORT = process.env.REACT_APP_PORT;
-
 
 const Estimate = () => {
   const [post, setPost] = useState([]);
@@ -15,7 +15,35 @@ const Estimate = () => {
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
   const [additionalInfo, setAdditionalInfo] = useState('');
+  const [selectedOption, setSelectedOption] = useState(null);
   const [hasErrorMessage, setHasErrorMessage] = useState(false);
+
+  const options = [
+    { value: 'Window Washing', label: 'Window washing' },
+    { value: 'Mos Removal and Treatment', label: 'Mos Removal and Treatment' },
+    { value: 'Soft Wash of Siding', label: 'Soft Wash of Siding' },
+    { value: 'Gutter Cleaning', label: 'Gutter Cleaning' },
+    {
+      value: 'Fascia/Trim/Soffit Cleaning',
+      label: 'Fascia/Trim/Soffit Cleaning'
+    },
+    { value: 'Roof Cleaning', label: 'Roof Cleaning' }
+  ];
+
+  const loadOptions = (searchValue, callback) => {
+    setTimeout(() => {
+      const filteredOptions = options.filter((option) =>
+        option.label.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      console.log('loadOptions', searchValue, filteredOptions);
+      callback(filteredOptions);
+    }, 2000);
+  };
+
+  const handleOption = (selectedOption) => {
+    console.log('selectedOption', selectedOption);
+    setSelectedOption(selectedOption.map((e) => e['value']));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,7 +62,7 @@ const Estimate = () => {
           phone_number: phoneNum,
           home_address: address,
           email_address: email,
-          //need to add the options for services
+          service: selectedOption,
           additional_info: additionalInfo
         }
       };
@@ -118,71 +146,18 @@ const Estimate = () => {
         </div>
 
         <p className="estimate_form_label_bold">Select which service(s) you want:</p>
+     
         <div className="form-check form-check-inline">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value="Window Washing"
-            id="service_1"
+          <Select
+            onChange={handleOption}
+            defaultValue={selectedOption}
+            isMulti
+            name="service"
+            options={options}
+            className="form-check_options"
+            classNamePrefix="select"
+            loadOptions={loadOptions}
           />
-          <label className="form-check-label" htmlFor="service_1">
-            Window Washing
-          </label>
-        </div>
-        <div className="form-check form-check-inline">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value="Siding Soft Wash"
-            id="service_2"
-          />
-          <label className="form-check-label" htmlFor="service_2">
-            Siding Soft Wash
-          </label>
-        </div>
-        <div className="form-check form-check-inline">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value="Gutter Cleaning"
-            id="service_3"
-          />
-          <label className="form-check-label" htmlFor="service_3">
-            Gutter Cleaning
-          </label>
-        </div>
-        <div className="form-check form-check-inline">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value="Fascia/Trim/Soffit Cleaning"
-            id="service_4"
-          />
-          <label className="form-check-label" htmlFor="service_4">
-            Fascia/Trim/Soffit Cleaning
-          </label>
-        </div>
-        <div className="form-check form-check-inline">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value="Roof Cleaning"
-            id="service_5"
-          />
-          <label className="form-check-label" htmlFor="service_5">
-            Roof Cleaning
-          </label>
-        </div>
-        <div className="form-check form-check-inline">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value="Moss Removal and Treatment"
-            id="service_6"
-          />
-          <label className="form-check-label" htmlFor="service_6">
-            Moss Removal and Treatment
-          </label>
         </div>
 
         <div className="form-group">

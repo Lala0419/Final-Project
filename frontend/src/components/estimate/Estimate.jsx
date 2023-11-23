@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Estimate.scss";
 import axios from "axios";
 import AsyncSelect from "react-select/async";
+import Select from "react-select";
 
 //SET THEM IN YOUR .ENV FILE
 const URL = process.env.REACT_APP_BACKEND_URL;
@@ -40,7 +41,7 @@ const Estimate = () => {
 
 	const handleOption = (selectedOption) => {
 		console.log("selectedOption", selectedOption);
-		setSelectedOption(selectedOption);
+		setSelectedOption(selectedOption.map((e) => e["value"]));
 	};
 
 	const loadOptions = (searchValue, callback) => {
@@ -78,7 +79,7 @@ const Estimate = () => {
 					phone_number: phoneNum,
 					home_address: address,
 					email_address: email,
-					service: [selectedOption.value],
+					service: [selectedOption],
 					additional_info: additionalInfo,
 				},
 			});
@@ -167,14 +168,25 @@ const Estimate = () => {
 					Select which service(s) you want:
 				</p>
 				<div className="form-check form-check-inline">
-					<AsyncSelect
+					<Select
+						onChange={handleOption}
+						defaultValue={selectedOption}
+						isMulti
+						name="service"
+						options={options}
+						className="form-check_options"
+						classNamePrefix="select"
+						loadOptions={loadOptions}
+					/>
+					{/* <AsyncSelect
 						// defaultValue={service}
+						isMulti
 						defaultValue={selectedOption}
 						onChange={handleOption}
 						loadOptions={loadOptions}
 						defaultOptions
 						className="form-check_options"
-					/>
+					/> */}
 				</div>
 
 				<div className="form-group">

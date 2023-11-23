@@ -8,7 +8,7 @@ const URL = process.env.REACT_APP_BACKEND_URL;
 const PORT = process.env.REACT_APP_PORT;
 
 const Estimate = () => {
-	const [post, setPost] = useState([]);
+	const [post, setPost] = useState({});
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [phoneNum, setPhoneNum] = useState("");
@@ -17,7 +17,6 @@ const Estimate = () => {
 	const [additionalInfo, setAdditionalInfo] = useState("");
 	const [hasErrorMessage, setHasErrorMessage] = useState(false);
 	const [selectedOption, setSelectedOption] = useState(null);
-	// const [service, setService] = useState("");
 
 	const options = [
 		{ value: "Window Washing", label: "Window washing" },
@@ -30,13 +29,6 @@ const Estimate = () => {
 		},
 		{ value: "Roof Cleaning", label: "Roof Cleaning" },
 	];
-
-	// const handleOption = (service) => {
-	// 	console.log("selectedOption", service.value);
-	// 	const newSelectedOptions = [...selectedOption];
-	// 	newSelectedOptions.push(service.value);
-	// 	setSelectedOption(newSelectedOptions);
-	// };
 
 	const handleOption = (selectedOption) => {
 		console.log("selectedOption", selectedOption);
@@ -71,20 +63,20 @@ const Estimate = () => {
 		} else {
 			setHasErrorMessage(false);
 			//we need to wrap the info under a customer key beacuse the customer controller needs it to be nested like this.
-			const customerData = setPost({
-				customer: {
-					first_name: firstName,
-					last_name: lastName,
-					phone_number: phoneNum,
-					home_address: address,
-					email_address: email,
-					service: [selectedOption],
-					additional_info: additionalInfo,
-				},
-			});
+
+			const customer = {
+				first_name: firstName,
+				last_name: lastName,
+				phone_number: phoneNum,
+				home_address: address,
+				email_address: email,
+				service: selectedOption,
+				additional_info: additionalInfo,
+			};
+			console.log("+++++++++++++", customer);
 
 			axios
-				.post(`${URL}${PORT}/api/v1/customers`, customerData)
+				.post(`${URL}${PORT}/api/v1/customers`, customer)
 				.then((res) => {
 					setPost(post, res.data);
 				})

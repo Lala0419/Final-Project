@@ -48,6 +48,22 @@
 
 .form-check {
 	margin-bottom: 1rem;
+	color: $color-secondary-dark;
+	width: 20rem;
+	text-align: start;
+	border: none;
+
+	&_options {
+		outline: none;
+		width: 100%;
+		@include form-field-border;
+		border: none;
+		font-size: 1.3rem;
+
+		&:focus {
+			@include form-field-border--active;
+		}
+	}
 
 	&-label {
 		color: #737373;

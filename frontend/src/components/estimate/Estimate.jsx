@@ -16,8 +16,8 @@ const Estimate = () => {
 	const [email, setEmail] = useState("");
 	const [additionalInfo, setAdditionalInfo] = useState("");
 	const [hasErrorMessage, setHasErrorMessage] = useState(false);
-	const [selectedOption, setSelectedOption] = useState([]);
-	const [service, setService] = useState("");
+	const [selectedOption, setSelectedOption] = useState(null);
+	// const [service, setService] = useState("");
 
 	const options = [
 		{ value: "Window Washing", label: "Window washing" },
@@ -31,17 +31,17 @@ const Estimate = () => {
 		{ value: "Roof Cleaning", label: "Roof Cleaning" },
 	];
 
-	const handleOption = (service) => {
-		console.log("selectedOption", service.value);
-		const newSelectedOptions = [...selectedOption];
-		newSelectedOptions.push(service.value);
-		setSelectedOption(newSelectedOptions);
-	};
-
-	// const handleOption = (selectedOption) => {
-	// 	console.log("selectedOption", selectedOption.value);
-	// 	setSelectedOption(selectedOption.value);
+	// const handleOption = (service) => {
+	// 	console.log("selectedOption", service.value);
+	// 	const newSelectedOptions = [...selectedOption];
+	// 	newSelectedOptions.push(service.value);
+	// 	setSelectedOption(newSelectedOptions);
 	// };
+
+	const handleOption = (selectedOption) => {
+		console.log("selectedOption", selectedOption);
+		setSelectedOption(selectedOption);
+	};
 
 	const loadOptions = (searchValue, callback) => {
 		setTimeout(() => {
@@ -71,49 +71,27 @@ const Estimate = () => {
 		} else {
 			setHasErrorMessage(false);
 			//we need to wrap the info under a customer key beacuse the customer controller needs it to be nested like this.
-			const customerData = {
+			const customerData = setPost({
 				customer: {
 					first_name: firstName,
 					last_name: lastName,
 					phone_number: phoneNum,
 					home_address: address,
 					email_address: email,
-					service: selectedOption,
+					service: [selectedOption.value],
 					additional_info: additionalInfo,
 				},
-				// setPost({
-				// 	firstName,
-				// 	lastName,
-				// 	phoneNum,
-				// 	address,
-				// 	email,
-				// 	service: selectedOption.value,
-				// 	additionalInfo,
-				// });
-			};
+			});
 
 			axios
 				.post(`${URL}${PORT}/api/v1/customers`, customerData)
 				.then((res) => {
-					setPost(res.data);
+					setPost(post, res.data);
 				})
 				.catch((error) => {
 					console.error("Error", error);
 				});
 		}
-		// axios
-		// 	.post("http://localhost:3003/api/v1/customers", {
-		// 		firstName,
-		// 		lastName,
-		// 		phoneNum,
-		// 		address,
-		// 		email,
-		// 		service: selectedOption.value,
-		// 		additionalInfo,
-		// 	})
-		// 	.then((res) => {
-		// 		setPost(post, res.data);
-		// 	});
 	};
 
 	return (
@@ -190,8 +168,8 @@ const Estimate = () => {
 				</p>
 				<div className="form-check form-check-inline">
 					<AsyncSelect
-						defaultValue={service}
-						// defaultValue={selectedOption}
+						// defaultValue={service}
+						defaultValue={selectedOption}
 						onChange={handleOption}
 						loadOptions={loadOptions}
 						defaultOptions

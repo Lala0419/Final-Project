@@ -5,6 +5,7 @@ import Home from './pages/home/Home';
 import EstimatePage from './pages/estimatePage/EstimatePage';
 import Navigation from './components/navigation/Navigation';
 import Footer from './components/footer/Footer';
+import Admin from './pages/admin/Admin';
 
 function App() {
   return (
@@ -16,9 +17,8 @@ function App() {
         {/* <Route path="/about" element={<About />} /> */}
         {/* <Route path="/service" element={<Service />} /> */}
         <Route path="/free-estimate" element={<EstimatePage />} />
-        {/* <Route path="/admin" element={<Admin />} /> */}
+        <Route path="/admin" element={<Admin />} />
       </Routes>
-
       {/* <Footer /> */}
     </>
   );

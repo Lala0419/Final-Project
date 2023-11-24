@@ -153,18 +153,6 @@ const Estimate = () => {
 					/>
 				</div>
 				<div className="form-group">
-					<label htmlFor="house_address" className="estimate_form_label">
-						House Address{" "}
-						<span className="estimate_form_label-muted">(required)</span>
-					</label>
-					<input
-						type="text"
-						className="form-control form-control-lg"
-						value={address}
-						onChange={(e) => setAddress(e.target.value)}
-					/>
-				</div>
-				<div className="form-group">
 					<label htmlFor="email_address" className="estimate_form_label">
 						Email Address{" "}
 						<span className="estimate_form_label-muted">(required)</span>
@@ -174,6 +162,18 @@ const Estimate = () => {
 						className="form-control form-control-lg"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
+					/>
+				</div>
+				<div className="form-group">
+					<label htmlFor="house_address" className="estimate_form_label">
+						House Address{" "}
+						<span className="estimate_form_label-muted">(required)</span>
+					</label>
+					<input
+						type="text"
+						className="form-control form-control-lg"
+						value={address}
+						onChange={(e) => setAddress(e.target.value)}
 					/>
 				</div>
 

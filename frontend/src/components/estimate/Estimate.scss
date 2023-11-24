@@ -1,61 +1,91 @@
-@use '../../styles/partials/index' as *;
-@use '../../styles/partials/breakpoints' as breakpoints;
+@use "../../styles/partials/index" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
 
 .estimate {
-  font-family: Helvetica, sans-serif;
-  margin: 2rem;
+	font-family: Helvetica, sans-serif;
+	margin: 2rem;
 
-  &_title {
-    @include mobile-text-page-header;
-  }
+	&_title {
+		@include mobile-text-page-header;
+	}
 
-  &_form {
-    margin: 3rem 2rem;
+	&_form {
+		margin: 3rem 2rem;
 
-    &_label {
-      color: #737373;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
+		&_label {
+			color: #737373;
+			font-size: 1.5rem;
+			margin-bottom: 0.5rem;
 
-      &_bold {
-        font-weight: 600;
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        color: #4e4e4e;
-      }
+			&_bold {
+				font-weight: 600;
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+				color: #4e4e4e;
+			}
 
-      &-muted {
-        font-size: 0.95rem;
-      }
-    }
-  }
+			&-muted {
+				font-size: 0.95rem;
+			}
+		}
+	}
 }
 
 .form-control {
-  padding: 1rem;
-  border: 2px solid #bdbdbd;
-  border-radius: 0;
+	padding: 1rem;
+	border: 2px solid #bdbdbd;
+	border-radius: 0;
 }
 .text-area {
-  height: 10rem;
-  resize: none;
+	height: 10rem;
+	resize: none;
+	font-size: 1.25rem;
 }
 
 .btn {
-  font-size: 1.75rem;
-  padding: 12px;
+	font-size: 1.75rem;
+	padding: 12px;
 }
 
 .form-check {
-  margin-bottom: 1rem;
+	margin-bottom: 1rem;
+	color: $color-secondary-dark;
+	width: 30rem;
+	text-align: start;
+	border: none;
 
-  &-label {
-    color: #737373;
-    font-size: 1.5rem;
-    margin-left: 0.25rem;
-    margin-right: 1rem;
-  }
-  &-input {
-    accent-color: #afafaf;
-  }
+	&_options {
+		outline: none;
+		width: 100%;
+		@include form-field-border;
+		border: none;
+		font-size: 1.3rem;
+
+		&:focus {
+			@include form-field-border--active;
+		}
+	}
+
+	&-label {
+		color: #737373;
+		font-size: 1.5rem;
+		margin-left: 0.25rem;
+		margin-right: 1rem;
+	}
+	&-input {
+		accent-color: #afafaf;
+	}
+}
+
+.text__error {
+	color: rgb(255, 45, 45);
+	font-size: 1.6rem;
+	font-weight: 500;
+	display: block;
+	padding: 0.5rem;
+	margin-top: 1rem;
+
+	// @include breakpoints.medium {
+	// 	display: block;
+	// }
 }

@@ -23,14 +23,6 @@ development:
   host: <%= ENV.fetch("host") %>
   port: 5432
 
-# development:
-#   <<: *default
-#   database: fntxlvdh
-#   username: fntxlvdh
-#   password: x-N1ctIxpAN428DdJqmnyagp9y4XezsN
-#   host: bubble.db.elephantsql.com
-#   port: 5432
-
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.

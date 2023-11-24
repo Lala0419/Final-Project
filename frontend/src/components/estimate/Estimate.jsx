@@ -2,10 +2,26 @@ import React, { useState } from "react";
 import "./Estimate.scss";
 import axios from "axios";
 import Select from "react-select";
+import { useSnackbar } from "react-simple-snackbar";
 
 //SET THEM IN YOUR .ENV FILE
 const URL = process.env.REACT_APP_BACKEND_URL;
 const PORT = process.env.REACT_APP_PORT;
+const snackbarOptions = {
+	position: "right",
+	style: {
+		backgroundColor: "rgba(160, 148, 64)",
+		border: "2px solid white",
+		color: "",
+		fontFamily: "Menlo, monospace",
+		textAlign: "center",
+		padding: "1rem",
+	},
+	closeStyle: {
+		color: "#fff",
+		fontSize: "16px",
+	},
+};
 
 const Estimate = () => {
 	const [post, setPost] = useState({});
@@ -17,6 +33,7 @@ const Estimate = () => {
 	const [additionalInfo, setAdditionalInfo] = useState("");
 	const [hasErrorMessage, setHasErrorMessage] = useState(false);
 	const [selectedOption, setSelectedOption] = useState(null);
+	const [openSnackbar, closeSnackbar] = useSnackbar(snackbarOptions);
 
 	const options = [
 		{ value: "Window Washing", label: "Window washing" },
@@ -83,6 +100,11 @@ const Estimate = () => {
 				.catch((error) => {
 					console.error("Error", error);
 				});
+
+			openSnackbar("You have submitted successfully");
+			setTimeout(() => {
+				closeSnackbar();
+			}, 3000);
 		}
 	};
 
@@ -169,15 +191,6 @@ const Estimate = () => {
 						classNamePrefix="select"
 						loadOptions={loadOptions}
 					/>
-					{/* <AsyncSelect
-						// defaultValue={service}
-						isMulti
-						defaultValue={selectedOption}
-						onChange={handleOption}
-						loadOptions={loadOptions}
-						defaultOptions
-						className="form-check_options"
-					/> */}
 				</div>
 
 				<div className="form-group">
@@ -195,9 +208,9 @@ const Estimate = () => {
 				{hasErrorMessage && (
 					<p className="text__error">This field can not be empty!</p>
 				)}
-				<button type="submit" className="btn btn-dark btn-lg">
+				<span onClick={handleSubmit} type="submit" className="btn">
 					Submit
-				</button>
+				</span>
 			</form>
 		</div>
 	);

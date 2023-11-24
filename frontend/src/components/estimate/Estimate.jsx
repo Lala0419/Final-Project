@@ -48,22 +48,13 @@ const Estimate = () => {
 	];
 
 	const handleOption = (selectedOption) => {
-		console.log("selectedOption", selectedOption);
-		setSelectedOption(selectedOption.map((e) => e["value"]));
-	};
-
-	const loadOptions = (searchValue, callback) => {
-		setTimeout(() => {
-			const filteredOptions = options.filter((option) =>
-				option.label.toLowerCase().includes(searchValue.toLowerCase())
-			);
-			console.log("loadOptions", searchValue, filteredOptions);
-			callback(filteredOptions);
-		}, 2000);
+		//HAVE to be a whole object that is grabbing here
+		setSelectedOption(selectedOption.map((e) => e));
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		console.log("!selectedOption", selectedOption);
 		if (
 			!firstName ||
 			!lastName ||
@@ -79,18 +70,15 @@ const Estimate = () => {
 			}, 2000);
 		} else {
 			setHasErrorMessage(false);
-			//we need to wrap the info under a customer key beacuse the customer controller needs it to be nested like this.
-
 			const customer = {
 				first_name: firstName,
 				last_name: lastName,
 				phone_number: phoneNum,
 				home_address: address,
 				email_address: email,
-				service: selectedOption,
+				service: selectedOption.map((e) => e.value),
 				additional_info: additionalInfo,
 			};
-			console.log("+++++++++++++", customer);
 
 			axios
 				.post(`${URL}${PORT}/api/v1/customers`, customer)
@@ -101,10 +89,19 @@ const Estimate = () => {
 					console.error("Error", error);
 				});
 
-			openSnackbar("You have submitted successfully");
+			openSnackbar("You have submitted your request successfully!");
 			setTimeout(() => {
 				closeSnackbar();
 			}, 3000);
+
+			//Clear the form
+			setAddress("");
+			setEmail("");
+			setPhoneNum("");
+			setFirstName("");
+			setLastName("");
+			setAdditionalInfo("");
+			setSelectedOption(null);
 		}
 	};
 
@@ -185,11 +182,11 @@ const Estimate = () => {
 						onChange={handleOption}
 						defaultValue={selectedOption}
 						isMulti
+						value={selectedOption} //HAS to be an object key value pair
 						name="service"
 						options={options}
 						className="form-check_options"
 						classNamePrefix="select"
-						loadOptions={loadOptions}
 					/>
 				</div>
 

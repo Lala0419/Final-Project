@@ -1,0 +1,27 @@
+@use "../../styles/partials/index" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+
+.admin {
+
+  margin: 40px;
+
+  &_table {
+    border-collapse: collapse;
+    width: 100%;
+  
+    &-header {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+      @include mobile-text-page-header;
+    }
+  
+    &-info {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+      @include mobile-text-body-footer
+    }
+  }
+
+}

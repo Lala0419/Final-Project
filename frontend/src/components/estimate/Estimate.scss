@@ -43,8 +43,12 @@
 }
 
 .btn {
-	font-size: 1.75rem;
-	padding: 12px;
+	@include mobile-text-buttons;
+	font-size: 1.5rem;
+	@include button;
+	color: $color-primary-light;
+	margin: 2rem 0 3rem 0;
+	border-radius: 0%;
 }
 
 .form-check {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_21_201912) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_25_060659) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
   enable_extension "btree_gist"
@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_21_201912) do
     t.text "additional_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "request_status", default: "pending"
   end
 
   create_table "subscribers", force: :cascade do |t|

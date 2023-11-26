@@ -10,6 +10,7 @@ const PORT = process.env.REACT_APP_PORT;
 
 function ReadOnlyRow({ estimateList }) {
 	const [selectedOption, setSelectedOption] = useState(null);
+	const [estimateRow, setEstimateRow] = useState(estimateList);
 
 	const options = [
 		{ value: "pending", label: "Pending" },
@@ -18,7 +19,6 @@ function ReadOnlyRow({ estimateList }) {
 		{ value: "canceled", label: "Canceled" },
 	];
 
-	console.log("estimateList", estimateList);
 	const loadOptions = (searchValue, callback) => {
 		setTimeout(() => {
 			const filteredOptions = options.filter((option) =>
@@ -32,32 +32,29 @@ function ReadOnlyRow({ estimateList }) {
 		setSelectedOption(selectedOption);
 		console.log("selectedOption", selectedOption);
 		axios
-			.patch(`${URL}${PORT}/api/v1/customers/${estimateList.id}`, {
-				...estimateList,
+			.patch(`${URL}${PORT}/api/v1/customers/${estimateRow.id}`, {
+				...estimateRow,
 				request_status: selectedOption.value,
 			})
 			.then((res) => {
-				console.log("data", res);
+				setEstimateRow(res.data);
 			})
 			.catch((error) => {
 				console.log("error", error);
 			});
 	};
 
-	const handleClick = (event) => {
-		console.log(event.currentTarget.id);
-	};
 	return (
-		<tr key={estimateList.id} onClick={handleClick}>
-			<th scope="row">{estimateList.id}</th>
-			<td>{estimateList.first_name}</td>
-			<td>{estimateList.last_name}</td>
-			<td>{estimateList.email_address}</td>
-			<td>{estimateList.home_address}</td>
-			<td>{estimateList.additional_info}</td>
+		<tr key={estimateRow.id}>
+			<th scope="row">{estimateRow.id}</th>
+			<td>{estimateRow.first_name}</td>
+			<td>{estimateRow.last_name}</td>
+			<td>{estimateRow.email_address}</td>
+			<td>{estimateRow.home_address}</td>
+			<td>{estimateRow.additional_info}</td>
 			<td>
 				<div className="admin-status-box">
-					{estimateList.request_status}
+					{estimateRow.request_status}
 					<Select
 						defaultValue={selectedOption}
 						components={animatedComponents}

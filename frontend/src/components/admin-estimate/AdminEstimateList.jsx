@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./AdminEstimateList.scss";
-import ReadOnlyRow from "../ReadOnlyRow";
+import ReadOnlyRow from "./ReadOnlyRow";
 
 const URL = process.env.REACT_APP_BACKEND_URL;
 const PORT = process.env.REACT_APP_PORT;
@@ -49,7 +49,7 @@ const AdminEstimateList = () => {
 					</thead>
 					<tbody>
 						{estimateLists.map((estimateList) => (
-							<ReadOnlyRow estimateList={estimateList} />
+							<ReadOnlyRow estimateList={estimateList} key={estimateList.id} />
 						))}
 					</tbody>
 				</table>

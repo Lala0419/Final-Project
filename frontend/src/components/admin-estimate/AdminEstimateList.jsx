@@ -9,9 +9,6 @@ const PORT = process.env.REACT_APP_PORT;
 const AdminEstimateList = () => {
 	const [estimateLists, setEstimateLists] = useState([]);
 
-	const id = estimateLists.map((estimate) => estimate.id);
-	console.log("id", id);
-
 	//fetch all the estimates from database
 	const getAllEstimates = () => {
 		axios
@@ -28,8 +25,6 @@ const AdminEstimateList = () => {
 	useEffect(() => {
 		getAllEstimates();
 	}, []);
-
-	console.log("estimatelist", estimateLists);
 
 	return (
 		<div>

@@ -1,14 +1,39 @@
-import React from "react";
+import React, {useState} from "react";
+import axios from "axios";
+
 
 import './Footer.scss'
 
 
 import { FaRegEnvelope } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
+const URL = process.env.REACT_APP_BACKEND_URL;
+const PORT = process.env.REACT_APP_PORT;
 
 function Footer() {
-  return (
+  const [formData, setFormData] = useState({ first_name: "", email_address: "" });
 
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios.post(`${URL}${PORT}/api/v1/subscribers`, {
+      subscriber: formData,
+    })
+    .then((response) => {
+      console.log(response.data);
+      // Clear the form after successful submission
+      setFormData({ first_name: "", email_address: "" });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  };
+
+  return (
     <div className="footer">
       <div className="footer_socials">
         <button className="footer_socials-button">
@@ -21,58 +46,30 @@ function Footer() {
 
       <div className="footer_newsletter">
         <h1 className="footer_newsletter-header">
-          Subcribe to our Seasonal Newsletter
+          Subscribe to our Seasonal Newsletter
         </h1>
         <p className="footer_newsletter-body">
           Sign up with your email address to receive deals and discounts on our services.
         </p>
-
-        <form method="post" action="none" className="footer_newsletter-form">
-          <textarea className="footer_newsletter-form-text" name="newsletter-name" placeholder="Name"></textarea>
-          <textarea className="footer_newsletter-form-text" name="newsletter-email" placeholder="Email Address"></textarea>
-          <input type="submit" value="Sign up" className="footer_newsletter-btn" onClick={(event) => event.preventDefault()} />
+        <form onSubmit={handleSubmit} className="footer_newsletter-form">
+          <input
+            type="text"
+            name="first_name"
+            value={formData.first_name}
+            placeholder="Name"
+            onChange={handleInputChange}
+          />
+          <input
+            type="email"
+            name="email_address"
+            value={formData.email_address}
+            placeholder="Email Address"
+            onChange={handleInputChange}
+          />
+          <input type="submit" value="Sign up" className="footer_newsletter-btn" />
         </form>
       </div>
-
-      <div className="footer_nav">
-        <button className="footer_nav-btn">Phone Number</button>
-        <button className="footer_nav-btn">Free Estimate</button>
-      </div>
     </div>
-
-    // <footer>
-    //   <div className="social-btns">
-    //     <button className='social-btn'>
-    //       <FaFacebookF />
-    //     </button>
-    //     <button className='social-btn'>
-    //       <FaRegEnvelope />
-    //     </button>
-    //   </div>
-
-    //   <div className="footer__body">
-    //     <h1 className="footer__header">
-    //       Subscribe to our Seasonal Newsletter
-    //     </h1>
-    //     <p className="footer__p">
-    //       Sign up with your email address to receive deals and discounts an our services.
-    //     </p>
-
-    //     <form method="post" action="none" className="newsletter__form">
-    //       <textarea className="newsletter__textarea" name="newsletter-text" placeholder="Email Address"></textarea>
-    //       <input type="submit" value="Sign Up" className="newsletter__input" onClick={(event) => event.preventDefault()} />
-    //     </form>
-
-    //     <p className="message">
-    //       We respect your privacy.
-    //     </p>
-    //   </div>
-
-    //   <div className="nav-btns">
-    //   <button className='nav-btn'>Phone Number</button>
-    //   <button className='nav-btn'>Free Estimate</button>
-    //   </div>
-    // </footer>
   );
 }
 

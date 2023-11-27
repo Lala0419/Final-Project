@@ -46,14 +46,19 @@ function ReadOnlyRow({ estimateList }) {
 	};
 
 	return (
-		<tr key={estimateRow.id}>
-			<th scope="row">{estimateRow.id}</th>
-			<td>{estimateRow.first_name}</td>
-			<td>{estimateRow.last_name}</td>
-			<td>{estimateRow.email_address}</td>
-			<td>{estimateRow.home_address}</td>
-			<td>{estimateRow.additional_info}</td>
-			<td>
+		<tr key={estimateRow.id} className="readOnly_table-row_box">
+			<th className="readOnly_table-id" scope="row">
+				{estimateRow.id}
+			</th>
+			<td className="readOnly_table-fName">{estimateRow.first_name}</td>
+			<td className="readOnly_table-lName">{estimateRow.last_name}</td>
+			<td className="readOnly_table-phoneNum">{estimateRow.phone_number}</td>
+			<td className="readOnly_table-eAdd">{estimateRow.email_address}</td>
+			<td className="readOnly_table-hAdd">{estimateRow.home_address}</td>
+			<td className="readOnly_table-addInfo">
+				<p>{estimateRow.additional_info}</p>
+			</td>
+			<td className="readOnly_table-drop_menu">
 				<div className="admin-status-box">
 					<span
 						className="readOnly-status"

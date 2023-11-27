@@ -1,9 +1,60 @@
+@use "../../styles/partials/index" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+
 .admin-status-box {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	width: 20rem;
 }
 
-.readOnly-select {
-	width: 10rem;
+.readOnly {
+	&-select {
+		width: 10rem;
+	}
+
+	&_table- {
+		&row_box {
+			font-size: 1.2rem;
+			width: 20rem;
+
+			@include breakpoints.large {
+				font-size: 1.5rem;
+			}
+		}
+
+		&id {
+			max-width: 2rem;
+		}
+		&fName {
+			overflow-y: auto;
+			max-width: 6rem;
+		}
+		&lName {
+			overflow-y: auto;
+			max-width: 10rem;
+		}
+		&phoneNum {
+			overflow-y: auto;
+			max-width: 2rem;
+		}
+		&eAdd {
+			overflow-y: auto;
+			max-width: 10rem;
+		}
+		&hAdd {
+			max-width: 12rem;
+			overflow-y: auto;
+		}
+
+		&addInfo {
+			max-width: 15rem;
+			overflow-y: auto;
+			font-size: 1.2rem;
+		}
+
+		&drop_menu {
+			width: 20rem;
+		}
+	}
 }

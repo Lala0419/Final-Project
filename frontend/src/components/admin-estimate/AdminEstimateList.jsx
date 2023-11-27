@@ -41,6 +41,7 @@ const AdminEstimateList = () => {
 							<th scope="col">#</th>
 							<th scope="col">First_name</th>
 							<th scope="col">Last_name</th>
+							<th scope="col">Phone_Number</th>
 							<th scope="col">Email_address</th>
 							<th scope="col">Home_address</th>
 							<th scope="col">Additional_info</th>

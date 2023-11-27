@@ -23,7 +23,6 @@ const AdminEstimateList = () => {
   useEffect(() => {
     getAllEstimates();
   }, []);
-  console.log('estimatelist', estimateLists);
 
   const estimates = estimateLists.map((estimate) => {
     return (

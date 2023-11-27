@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import axios from "axios";
+import "./AdminEstimateList.scss";
 
 const animatedComponents = makeAnimated();
 
@@ -54,7 +55,36 @@ function ReadOnlyRow({ estimateList }) {
 			<td>{estimateRow.additional_info}</td>
 			<td>
 				<div className="admin-status-box">
-					{estimateRow.request_status}
+					<span
+						className="readOnly-status"
+						style={{
+							backgroundColor: (() => {
+								switch (estimateRow.request_status) {
+									case "pending":
+										return "rgb(0 127 255)";
+									case "completed":
+										return "rgb(57 208 66)";
+									case "canceled":
+										return "rgb(255 67 67)";
+									case "in process":
+										return "rgb(255 227 44)";
+									default:
+										return "white"; // or any default color
+								}
+							})(),
+							padding: "1rem",
+							borderRadius: "999px",
+							width: "7rem",
+							textAlign: "center",
+							fontSize: "1rem",
+							fontWeight: 600,
+						}}
+						// onClick={() => {
+						// 	handleClick(estimateRow.request_status);
+						// }}
+					>
+						{estimateRow.request_status}
+					</span>
 					<Select
 						defaultValue={selectedOption}
 						components={animatedComponents}
@@ -64,6 +94,7 @@ function ReadOnlyRow({ estimateList }) {
 						value={selectedOption}
 						loadOptions={loadOptions}
 						defaultOptions
+						className="readOnly-select"
 					/>
 				</div>
 			</td>

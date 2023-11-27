@@ -31,7 +31,7 @@ function ReadOnlyRow({ estimateList }) {
 
 	const handleOption = (selectedOption) => {
 		setSelectedOption(selectedOption);
-		console.log("selectedOption", selectedOption);
+
 		axios
 			.patch(`${URL}${PORT}/api/v1/customers/${estimateRow.id}`, {
 				...estimateRow,

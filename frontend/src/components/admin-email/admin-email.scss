@@ -14,6 +14,10 @@
       text-align: left;
       padding: 8px;
       @include mobile-text-page-header;
+      
+      &-button {
+        color: black;
+      }
     }
   
     &-info {
@@ -23,5 +27,6 @@
       @include mobile-text-body-footer
     }
   }
+
 
 }

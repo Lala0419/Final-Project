@@ -22,11 +22,13 @@ function About() {
 
         <div className="about_main-info">
           <img className='about_main-info-image' src={logo} alt='Logo for Property Brothers' />
-          <div className="about_main-info-p">
-            Over 1000 satisfied customers, and 100+ clients serviced seasonally
-          </div>
-          <div className="about_main-info-p">
-            5+ years of excellence
+          <div className="about_main-info-body">
+            <div className="about_main-info-p">
+              Over 1000 satisfied customers, and 100+ clients serviced seasonally
+            </div>
+            <div className="about_main-info-p">
+              5+ years of excellence
+            </div>
           </div>
         </div>
 
@@ -39,7 +41,7 @@ function About() {
 
         <div className="about_main_bottom">
           <div className="about_main_bottom-title">See if we're right for you</div>
-          <button className="about_main_bottom-button" placeholder="JOIN THE FAMILY"></button>
+          <button className="about_main_bottom-button">JOIN THE FAMILY</button>
         </div>
       </div>
 

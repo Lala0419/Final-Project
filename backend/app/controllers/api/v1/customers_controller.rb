@@ -18,6 +18,8 @@ class Api::V1::CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
+			#trigger email sending when new request is made
+			CustomerMailer.notify_admin(customer: @customer).deliver_now
       render json: @customer, status: :created, location: api_v1_customer_url(@customer)
     else
       render json:  { errors: @customer.errors.full_messages }, status: :unprocessable_entity

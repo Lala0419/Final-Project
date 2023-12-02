@@ -35,19 +35,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_25_060659) do
   enable_extension "uuid-ossp"
   enable_extension "xml2"
 
-  create_table "customers", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "phone_number"
-    t.string "email_address"
-    t.text "home_address"
-    t.text "service", default: [], array: true
-    t.text "additional_info"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "request_status", default: "pending"
-  end
-
   create_table "subscribers", force: :cascade do |t|
     t.string "first_name"
     t.string "email_address"

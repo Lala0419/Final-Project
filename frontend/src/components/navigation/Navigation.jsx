@@ -29,10 +29,6 @@ function Navigation() {
 				</div>
 
 				<div className="nav-right">
-					<Link to="/services" className="nav-right_button-link">
-						<button className="nav-button">Phone Number</button>
-					</Link>
-
 					<Link to="/home" className="nav-right_button-link">
 						<button className="nav-button">Home</button>
 					</Link>
@@ -43,6 +39,7 @@ function Navigation() {
 					<Link to="/services" className="nav-right_button-link">
 						<button className="nav-button">Services</button>
 					</Link>
+					<button className="nav-button">Phone Call</button>
 					<Link to="/free-estimate" className="nav-right_button-link">
 						<button className="nav-button">Free Estimate</button>
 					</Link>

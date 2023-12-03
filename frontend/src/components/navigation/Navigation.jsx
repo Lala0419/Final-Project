@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import "./Navigation.scss";
 
 function Navigation() {
@@ -29,11 +29,23 @@ function Navigation() {
 				</div>
 
 				<div className="nav-right">
-					<button className="nav-button">Phone Number</button>
-					<button className="nav-button">Home</button>
-					<button className="nav-button">About</button>
-					<button className="nav-button">Services</button>
-					<button className="nav-button">Free Estimate</button>
+					<Link to="/services" className="nav-right_button-link">
+						<button className="nav-button">Phone Number</button>
+					</Link>
+
+					<Link to="/home" className="nav-right_button-link">
+						<button className="nav-button">Home</button>
+					</Link>
+
+					<Link to="/about" className="nav-right_button-link">
+						<button className="nav-button">About</button>
+					</Link>
+					<Link to="/services" className="nav-right_button-link">
+						<button className="nav-button">Services</button>
+					</Link>
+					<Link to="/free-estimate" className="nav-right_button-link">
+						<button className="nav-button">Free Estimate</button>
+					</Link>
 				</div>
 			</div>
 		</>

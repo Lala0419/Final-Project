@@ -5,6 +5,6 @@ class CustomerMailer < ApplicationMailer
     @customer = params[:customer]
     @url  = 'http://api_v1_customer_url'
 		#not sure the email 
-    mail(to: ['Propertybrothershomeservices@gmail.com'], subject: 'Estimate Resquest Notification')
+    mail(to: ['Propertybrothershomeservices@gmail.com', 'akinola_lanrewaju@yahoo.com'], subject: 'Estimate Resquest Notification')
   end
 end

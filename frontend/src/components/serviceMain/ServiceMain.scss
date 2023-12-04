@@ -35,6 +35,11 @@
 		&-button-box {
 			margin-top: 4rem;
 			color: $color-primary-light;
+
+			&:hover {
+				text-decoration: none;
+				color: $color-primary-light;
+			}
 		}
 
 		&-button {
@@ -82,6 +87,14 @@
 		&-button-box {
 			display: block;
 			margin: 4rem;
+			border: none;
+			text-decoration: none;
+			color: $color-primary-light;
+
+			&:hover {
+				text-decoration: none;
+				color: $color-primary-light;
+			}
 		}
 
 		&-button {

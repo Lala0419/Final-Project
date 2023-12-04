@@ -3,8 +3,25 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>You just got an estimate request from <%= @customer.email_address %></h1>
+    <h2>New Estimate Request - Action required!!! </h2>
+
+		<p>Dear PropertyBrothers,</p>
+
+			<p>This is to inform you that a new estimate request has been submitted by a customer. Below are the details:</p>
+
+			<h4>Customer Information:</h4>
+			 <p>Name: <%= @customer.first_name %> <%= @customer.last_name %> </p>
+			<p>Email: <%= @customer.email_address %></p>
+			<p>Phone: <%= @customer.phone_number %></p>
+
+			<p>Please log in to the admin portal to review and process this estimate request as soon as possible. The customer is expecting a timely response.</p>
+
+			
+			<a href="http://localhost:3000/admin">link to view estimate request</a>
+
+		<p>	Thank you for your prompt attention to this matter.
+		</p>
     
-    <p><%= @customer.first_name %> has just requested for the an estimate!</p>
+    
   </body>
 </html>

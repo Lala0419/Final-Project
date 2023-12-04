@@ -18,6 +18,7 @@ class Api::V1::SubscribersController < ApplicationController
     @subscriber = Subscriber.new(subscriber_params)
 
     if @subscriber.save
+      SubscriptionMailer.welcome_email(@subscriber).deliver_now
       render json: @subscriber, status: :created, location: api_v1_subscriber_url(@subscriber)
     else
       render json: @subscriber.errors, status: :unprocessable_entity

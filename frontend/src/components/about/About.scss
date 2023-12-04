@@ -1,0 +1,97 @@
+@use "../../styles/partials/index" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+
+.about {
+  &_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url("../../assets/about_header.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 60%;
+    height: 600px;
+    text-align: center;
+    color: $color-primary-light;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+
+    &-title {
+      @include mobile-text-page-header;
+			font-size: 3rem;
+			line-height: 40px;
+			padding: 0 2rem;
+    }
+  }
+
+  &_main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid;
+
+    &_body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 40%;
+
+      &-title {
+        @include mobile-text-section-header;
+        margin: 2rem;
+        padding-top: 2rem;
+      }
+
+      &-p {
+        @include mobile-text-body-footer;
+        line-height: 2.5rem;
+        padding: 2.5rem;
+      }
+    }
+
+    &-info {
+      display: flex;
+      align-items: center;
+      width: 65%;
+
+      &-image {
+        width: 45%;
+      }
+
+      &-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      &-p {
+        @include mobile-text-page-header;
+        padding: 2.5rem;
+        width: 75%;
+      }
+    }
+
+    &_bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-top: groove;
+      width: 50%;
+
+      &-title {
+        @include mobile-text-section-header;
+        margin: 2rem;
+        padding-top: 2rem;
+      }
+
+      &-button {
+        @include button_nav_footer;
+        @include mobile-text-body-footer;
+        color: $color-primary-light;
+        padding: 2.5rem;
+        margin: 2.5rem;
+      }
+    }
+  }
+}

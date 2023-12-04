@@ -6,6 +6,7 @@ import EstimatePage from './pages/estimatePage/EstimatePage';
 import Navigation from './components/navigation/Navigation';
 import Footer from './components/footer/Footer';
 import SnackbarProvider from 'react-simple-snackbar';
+import Service from './pages/servicePage/Service';
 import Admin from './pages/admin/Admin';
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
           {/* <Route path="/about" element={<About />} /> */}
           {/* <Route path="/service" element={<Service />} /> */}
           <Route path="/free-estimate" element={<EstimatePage />} />
-
+          <Route path='/service' element={<Service />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
         <Footer />

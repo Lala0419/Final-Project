@@ -34,29 +34,32 @@ function ServiceMain() {
 					that will ensure your home maintains its beauty throughout the course
 					of the year.
 				</p>
-				<ServiceCard
-					title="Window Washing"
-					subtitle=""
-					desc="We don't only wash the window, this also includes a scrub of the entire frame and all the seals and sills."
-					img_before_url={windows_before}
-					img_after_url={windows_after}
-				/>
-				<ServiceCard
-					title="Soft Wash of Siding"
-					subtitle="(Vinyl, Hardy board, Aluminum, Wood, etc…)"
-					desc="We use nylon tip, water-fed brushes. This keeps the water pressure low. Comparatively to pressure washing, all the pressure comes from us scrubbing. A deep, detailed wash that maintains your sidings durability."
-					img_before_url={soft_wash_before}
-					img_after_url={soft_wash_after}
-				/>
+				<div className="serviceMain_bottom-box">
+					<div className="serviceMain_bottom-card-box">
+						<ServiceCard
+							title="Window Washing"
+							subtitle=""
+							desc="We don't only wash the window, this also includes a scrub of the entire frame and all the seals and sills."
+							img_before_url={windows_before}
+							img_after_url={windows_after}
+						/>
+						<ServiceCard
+							title="Soft Wash of Siding"
+							subtitle="(Vinyl, Hardy board, Aluminum, Wood, etc…)"
+							desc="We use nylon tip, water-fed brushes. This keeps the water pressure low. Comparatively to pressure washing, all the pressure comes from us scrubbing. A deep, detailed wash that maintains your sidings durability."
+							img_before_url={soft_wash_before}
+							img_after_url={soft_wash_after}
+						/>
 
-				<ServiceCard
-					title="Moss Removal and Treatment"
-					subtitle=""
-					desc="With the amount of moisture and shade we receive here in BC, moss on roofs is almost a given, and over growth can be detrimental. Our 3-part specialized process ensures the removal and control of moss, while maintaining the durability of your roof. Give us a call to hear how!"
-					img_before_url={moss_before}
-					img_after_url={moss_after}
-				/>
-				{/* 
+						<ServiceCard
+							title="Moss Removal and Treatment"
+							subtitle=""
+							desc="With the amount of moisture and shade we receive here in BC, moss on roofs is almost a given, and over growth can be detrimental. Our 3-part specialized process ensures the removal and control of moss, while maintaining the durability of your roof. Give us a call to hear how!"
+							img_before_url={moss_before}
+							img_after_url={moss_after}
+						/>
+					</div>
+					{/* 
 
 					//use when upgrade each card to be clickable. see more details, slides on before&after photos and maybe click each pucture to zoom in
 				
@@ -82,9 +85,10 @@ function ServiceMain() {
 					img_after_url={service_test_after}
 				/>
 			 */}
-				<Link to="/services" className="serviceMain_bottom-button-box">
-					<span className="serviceMain_bottom-button">SEE MORE SERVICES</span>
-				</Link>
+					<Link to="/services" className="serviceMain_bottom-button-box">
+						<span className="serviceMain_bottom-button">SEE MORE SERVICES</span>
+					</Link>
+				</div>
 			</div>
 		</div>
 	);

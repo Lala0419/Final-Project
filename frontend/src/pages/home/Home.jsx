@@ -5,14 +5,13 @@ import Reviews from '../../components/reviews/Reviews';
 import FacebookMessenger from '../../components/facebookMessenger/FacebookMessenger';
 
 function Home() {
-  return (
-    <>
-      <Header />
-      <ServiceMain />
-      <Reviews />
-      <FacebookMessenger />
-    </>
-  );
+	return (
+		<>
+			<Header />
+			<ServiceMain />
+			<Reviews />
+		</>
+	);
 }
 
 export default Home;

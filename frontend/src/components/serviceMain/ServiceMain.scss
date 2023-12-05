@@ -35,6 +35,11 @@
 		&-button-box {
 			margin-top: 4rem;
 			color: $color-primary-light;
+
+			&:hover {
+				text-decoration: none;
+				color: $color-primary-light;
+			}
 		}
 
 		&-button {
@@ -64,8 +69,32 @@
 			padding: 2.5rem;
 		}
 
+		&-box {
+			@include breakpoints.medium {
+				width: 100%;
+			}
+		}
+
+		&-card-box {
+			@include breakpoints.medium {
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+				width: 100%;
+			}
+		}
+
 		&-button-box {
-			margin: 2rem 0 3rem 0;
+			display: block;
+			margin: 4rem;
+			border: none;
+			text-decoration: none;
+			color: $color-primary-light;
+
+			&:hover {
+				text-decoration: none;
+				color: $color-primary-light;
+			}
 		}
 
 		&-button {

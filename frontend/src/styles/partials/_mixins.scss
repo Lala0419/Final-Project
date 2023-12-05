@@ -48,7 +48,7 @@
 }
 
 @mixin tablet-desk-text-buttons {
-	font-size: 1.3rem;
+	font-size: 1rem;
 	font-weight: 700;
 	line-height: 20px;
 }
@@ -113,7 +113,8 @@
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 150ms;
 	background-color: rgba(160, 148, 64); //for buttons in body
-	/* background-color: none?  //for nav and footer */
+	text-decoration: none;
+	outline: none;
 
 	&:hover {
 		box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2),

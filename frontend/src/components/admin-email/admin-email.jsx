@@ -48,7 +48,7 @@ function AdminEmail() {
         <tr className="admin_table-header">
           <th>Name</th>
           <th>Email</th>
-          <CSVLink data={subscribers} headers={headers}>Install CSV</CSVLink>
+          <CSVLink data={subscribers} headers={headers}>Download CSV</CSVLink>
         </tr>
         <tbody>{subscriberList}</tbody>
       </table>

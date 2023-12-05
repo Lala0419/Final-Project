@@ -2,6 +2,7 @@ import React from 'react';
 
 import './Navigation.scss'
 
+import { Link } from "react-router-dom";
 
 function Navigation() {
   const logo = "/facebookcover.png"
@@ -16,10 +17,18 @@ function Navigation() {
 
       <div className='nav-right'>
         <button className='nav-button'>Phone Number</button>
-        <button className='nav-button'>Home</button>
-        <button className='nav-button'>About</button>
-        <button className='nav-button'>Services</button>
-        <button className='nav-button'>Free Estimate</button>
+        <Link to="/" className="nav-button">
+          <span>Home</span>
+        </Link>
+        <Link to="/about" className="nav-button">
+          <span>About</span>
+        </Link>
+        <Link to="/services" className="nav-button">
+          <span>Services</span>
+        </Link>
+        <Link to="/free-estimate" className="nav-button">
+          <span>Free Estimate</span>
+        </Link>
       </div>
 
     </div>

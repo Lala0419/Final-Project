@@ -7,9 +7,9 @@ import FacebookMessenger from "../../components/facebookMessenger/FacebookMessen
 function Home() {
 	return (
 		<>
-			{/* <Header />
+			<Header />
 			<ServiceMain />
-			<Reviews /> */}
+			<Reviews />
 			<FacebookMessenger />
 		</>
 	);

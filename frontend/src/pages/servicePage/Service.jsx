@@ -17,6 +17,7 @@ import soffit_after from "../../assets/soffit_after.jpg";
 function Service() {
   const services = [
     {
+      id: 1,
       title: "Window Washing",
       subtitle: "",
       desc: `We don't only wash the window, 
@@ -25,6 +26,7 @@ function Service() {
       img_after_url: windows_after,
     },
     {
+      id: 2,
       title: "Soft Wash of Siding",
       subtitle: "(Vinyl, Hardy board, Aluminum, Wood, etc…)",
       desc: `We use nylon tip, water-fed brushes. This keeps the water pressure low. 
@@ -34,6 +36,7 @@ function Service() {
       img_after_url: soft_wash_after,
     },
     {
+      id: 3,
     title: "Gutter Cleaning",
     subtitle: "(Eavestroughs)",
     desc: `Rather than using a blower or pressure washer to blast all the gunk out, 
@@ -43,6 +46,7 @@ function Service() {
     img_after_url: gutters_after,
     },
     {
+      id: 4,
     title: "Fascia/Trim/Soffit Cleaning",
     subtitle: "",
     desc: `These areas of the home are often grungy and can get covered in algae over time. 
@@ -51,6 +55,7 @@ function Service() {
     img_after_url: soffit_after,
     },
     {
+      id:5,
     title: "Roof Cleaning",
     subtitle: "",
     desc:`It’s not easy moving around a roof. As the seasons change, 
@@ -60,6 +65,7 @@ function Service() {
     img_after_url: roof_cleaning_after,
     },
     {
+      id:6,
     title: "Moss Removal and Treatment",
     subtitle: "",
     desc: `With the amount of moisture and shade we receive here in BC, 
@@ -75,9 +81,9 @@ function Service() {
     <div className="serviceMain_bottom">
       <h4 className="serviceMain_bottom-title">Our Services</h4>
       <div className="serviceMain_bottom-cards">
-        {services.map((service, index) => (
+        {services.map((service) => (
           <ServicePage
-            key={index}
+            id={service.id}
             title={service.title}
             subtitle={service.subtitle}
             desc={service.desc}

@@ -1,34 +1,34 @@
-/* Add these styles to your CSS file */
-// Service SCSS 
-.card {
-    /* Existing styles... */
-    display: flex;
-    flex-direction: column;
-  }
+// /* Add these styles to your CSS file */
+// // Service SCSS 
+// .card {
+//     /* Existing styles... */
+//     display: flex;
+//     flex-direction: column;
+//   }
   
-  .card.two-columns {
-    flex-direction: row;
-  }
+//   .card.two-columns {
+//     flex-direction: row;
+//   }
   
-  .card_imgs {
-    display: flex;
-    justify-content: space-between;
-  }
+//   .card_imgs {
+//     display: flex;
+//     justify-content: space-between;
+//   }
   
-  .card_imgs-item {
-    cursor: pointer;
-  }
+//   .card_imgs-item {
+//     cursor: pointer;
+//   }
   
-  .modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-  }
+//   .modal {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     background-color: white;
+//     padding: 20px;
+//   }
   
-  .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+//   .overlay {
+//     background-color: rgba(0, 0, 0, 0.5);
+//   }
   

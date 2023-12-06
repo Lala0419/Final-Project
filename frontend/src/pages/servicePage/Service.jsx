@@ -1,5 +1,6 @@
 import React from "react";
-import ServiceCard from "../../components/serviceCard/ServiceCard";
+import ServicePage from "../../components/servicePage/ServicePage";
+
 import soft_wash_before from "../../assets/soft_wash_before.jpg";
 import soft_wash_after from "../../assets/soft_wash_after.jpg";
 import windows_before from "../../assets/windows_before.jpg";
@@ -75,7 +76,7 @@ function Service() {
 			<h4 className="serviceMain_bottom-title">Our Services</h4>
 			<div className="serviceMain_bottom-cards">
 				{services.map((service, index) => (
-					<ServiceCard
+					<ServicePage
 						key={index}
 						title={service.title}
 						subtitle={service.subtitle}

@@ -1,0 +1,79 @@
+.card {
+    display: flex;
+    margin: 20px;
+  }
+  
+  .card.two-columns {
+    flex-direction: row;
+  }
+  
+  .card_info {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .card_title {
+    margin-bottom: 10px;
+  }
+  
+  .card_desc {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .card_imgs {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .card_imgs-item {
+    cursor: pointer;
+    margin-right: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .card_imgs-item img {
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card_imgs-item:hover img {
+    transform: scale(3.1);
+  }
+
+  .card_imgs-item--caption {
+    font-size: 18px; /* Increased text size */
+    font-weight: bold;
+  }
+  
+  .modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px;
+    background-color: rgb(48, 60, 60);
+    background-blend-mode: darken;
+  }
+  
+  .modal_img {
+    width: 50%;
+    max-width: 800px;
+    margin-bottom: 15px;
+  }
+  
+  .modal_close_btn {
+    align-self: flex-end;
+    padding: 7px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border: none;
+    font-size: 14px;
+  }
+  
+  .service-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  

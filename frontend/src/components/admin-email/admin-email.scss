@@ -2,30 +2,32 @@
 @use "../../styles/partials/breakpoints" as breakpoints;
 
 .admin {
-
-  margin: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
 
   &_table {
     border-collapse: collapse;
     width: 100%;
   
-    &-header {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-      @include mobile-text-page-header;
-      
-      &-button {
-        color: black;
-      }
-    }
-  
     &-info {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-      @include mobile-text-body-footer
+			font-size: 1.2rem;
+			width: 20rem;
+
+			@include breakpoints.large {
+				font-size: 1.5rem;
+			}
     }
+  }
+
+  &_link {
+    @include button;
+    @include mobile-text-page-header;
+    color: black;
+    background-color: rgb(57 208 66);
+
+    margin: 10px;
   }
 
 

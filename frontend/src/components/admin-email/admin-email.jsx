@@ -35,7 +35,7 @@ function AdminEmail() {
   // table for subscribers
   const subscriberList = subscribers.map((subscriber) => {
     return (
-      <tr className="admin_table-info">
+      <tr key={subscriber.id} className="admin_table-info">
         <td>{subscriber.first_name}</td>
         <td>{subscriber.email_address}</td>
       </tr>
@@ -44,14 +44,17 @@ function AdminEmail() {
 
   return (
     <div className="admin" >
-      <table className="admin_table">
-        <tr className="admin_table-header">
-          <th>Name</th>
-          <th>Email</th>
-          <CSVLink data={subscribers} headers={headers}>Install CSV</CSVLink>
-        </tr>
+      <h1>Subcriber List</h1>
+      <table className="table table-lg">
+        <thead className="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
         <tbody>{subscriberList}</tbody>
       </table>
+      <CSVLink className="admin_link" data={subscribers} headers={headers}>Download CSV</CSVLink>
     </div>
   )
 }

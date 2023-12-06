@@ -1,0 +1,18 @@
+@use "../../styles/partials/index" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+
+.button {
+	display: inline-block;
+	@include button;
+	@include mobile-text-buttons;
+
+	margin: 2rem;
+
+	&:hover {
+		text-decoration: none;
+	}
+	&:focus {
+		outline: none;
+		text-decoration: none;
+	}
+}

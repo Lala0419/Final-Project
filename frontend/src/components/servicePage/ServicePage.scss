@@ -1,29 +1,54 @@
+.main_card {
+    display: flex;
+    justify-content: center;
+}
+
 .card {
     display: flex;
+    flex-direction: column; /* Change flex direction to column */
+    align-items: center; /* Center align the card on the page */
     margin: 20px;
   }
   
-  .card.two-columns {
+  .two-columns,
+  .two-columns-reverse {
+    display: flex;
     flex-direction: row;
+    width:70%;
+    align-items: baseline;
+    align-content: center;
+    justify-content:center;
   }
   
   .card_info {
+    display: flex;
+    flex-direction: column;
     flex: 1;
-    margin-right: 20px;
+    text-align: left;
+    margin: 10px;
+    width:30%;
+    
   }
   
   .card_title {
     margin-bottom: 10px;
   }
+
+  .service-title{
+    text-align: left;
+    
+  }
   
   .card_desc {
     margin-bottom: 20px;
-    text-align: center;
+    margin-top: 20px;
+    text-align: left;
   }
   
   .card_imgs {
     display: flex;
     flex-direction: row;
+    justify-content: center; /* Center align images within the columns */
   }
   
   .card_imgs-item {
@@ -41,25 +66,32 @@
   .card_imgs-item:hover img {
     transform: scale(3.1);
   }
-
+  
   .card_imgs-item--caption {
     font-size: 18px; /* Increased text size */
     font-weight: bold;
   }
   
   .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2px;
-    background-color: rgb(48, 60, 60);
-    background-blend-mode: darken;
+    padding: 20px;
+    width: 200%;
+    height: 100%;
+    background-color: rgba(48, 60, 60, 0.8); /* Transparent background */
+    max-width: 80%;
   }
   
   .modal_img {
-    width: 50%;
-    max-width: 800px;
-    margin-bottom: 15px;
+    width: 60%;
+    height: 80%;
+    max-width: 800%;
+    margin-bottom: 20%;
   }
   
   .modal_close_btn {
@@ -71,9 +103,60 @@
     font-size: 14px;
   }
   
-  .service-title {
-    font-size: 24px;
+  .modal_nav_btn {
+    margin-top: 10px;
+    padding: 7px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border: none;
+    font-size: 14px;
+  }
+
+.modal_title {
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    text-align: center;
   }
   
+  .modal_next_btn {
+    align-self: flex-end;
+    padding: 7px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border: none;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+
+.modal_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .modal_nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .modal_prev_btn,
+  .modal_next_btn {
+    padding: 7px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border: none;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  .modal_prev_btn {
+    margin-right: 20px;
+  }
+  
+  .modal_next_btn {
+    margin-left: 20px;
+  }
+   

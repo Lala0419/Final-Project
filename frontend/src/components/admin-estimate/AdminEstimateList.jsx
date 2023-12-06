@@ -44,9 +44,14 @@ const AdminEstimateList = () => {
 						</tr>
 					</thead>
 					<tbody>
-						{estimateLists.map((estimateList) => (
-							<ReadOnlyRow estimateList={estimateList} key={estimateList.id} />
-						))}
+						{estimateLists
+							.sort((a, b) => b.id - a.id)
+							.map((estimateList) => (
+								<ReadOnlyRow
+									estimateList={estimateList}
+									key={estimateList.id}
+								/>
+							))}
 					</tbody>
 				</table>
 			</div>

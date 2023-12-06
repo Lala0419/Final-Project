@@ -7,12 +7,13 @@ function Admin() {
 
   const [adminDisplay, setAdminDisplay] = useState('email');
 
+  const switchAdmin = () => setAdminDisplay(adminDisplay === 'email' ? 'estimate' : 'email');
 
   return (
     <div>
-      <AdminEmail />
-      <AdminEstimateList />
-
+      <button className="button" onClick={switchAdmin} >Show {adminDisplay === 'email' ? 'Estimate' : 'Email'} List</button>
+      {adminDisplay === 'email' && <AdminEmail />}
+      {adminDisplay === 'estimate' && <AdminEstimateList />}
     </div>
   )
 }

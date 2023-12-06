@@ -19,6 +19,7 @@ function Reviews() {
 					<iframe
 						className="elfsight"
 						src="https://widget-fd543a8e380c4a3292552654cf91bd07.elfsig.ht"
+						title="review"
 					></iframe>
 				</div>
 			</div>

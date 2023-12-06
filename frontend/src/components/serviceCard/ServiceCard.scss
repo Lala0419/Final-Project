@@ -1,8 +1,11 @@
 @use "../../styles/partials/index" as *;
 @use "../../styles/partials/breakpoints" as breakpoints;
 
-.card {
+.service-card {
 	height: 320px;
+	width: 28rem;
+	max-width: 30rem;
+	cursor: pointer;
 	// z-index: -1;
 	display: flex;
 	flex-direction: column;
@@ -12,10 +15,11 @@
 	border-radius: 8px;
 	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
-	@include breakpoints.large {
-		height: 400px;
-		padding: 1rem;
+	&:hover {
+		transform: scale(1.02);
+		transition: 0.5s ease-in-out;
 	}
+
 	&_title {
 		@include mobile-text-section-header;
 		margin: 1rem 0 0.5rem 0;
@@ -28,6 +32,9 @@
 
 	&_subtitle {
 		@include mobile-text-buttons;
+		font-weight: 400;
+		line-height: 0;
+		padding: 0 1rem;
 	}
 
 	&_desc {
@@ -53,13 +60,11 @@
 			}
 
 			&--img {
-				margin: 1rem;
+				padding: 1rem;
 				height: 14rem;
 				width: 12rem;
 				@include breakpoints.large {
-					margin: 1rem;
-					height: 17rem;
-					width: 15rem;
+					max-width: 17rem;
 				}
 			}
 		}

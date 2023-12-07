@@ -2,136 +2,162 @@
 @use "../../styles/partials/breakpoints" as breakpoints;
 
 .footer {
-  background-color: #3c342f;
+	background-color: #3c342f;
 
-  position: absolute;
-  width: 100%;
-  padding: 35px 100px 35px 100px;
+	position: absolute;
+	width: 100%;
+	padding: 35px 100px 35px 100px;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 
-  &_socials {
-    &-button {
-      @include mobile-text-buttons;
-      @include button;
+	&_socials {
+		&-button {
+			@include mobile-text-buttons;
+			@include button;
+			text-decoration: none;
+			width: 40px;
+			margin: 10px;
+			display: inline-block;
 
-      width: 40px;
+			&:visited {
+				text-decoration: none;
+				color: inherit;
+			}
+		}
+	}
 
-      margin: 10px;
-    }
-  }
+	&_newsletter {
+		color: white;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border: none;
 
-  &_newsletter {
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    &-header {
-      @include mobile-text-page-header;
-    }
+		&-header {
+			@include mobile-text-page-header;
+		}
 
-    &-body {
-      @include mobile-text-body-footer;
-      padding: 15px;
-    }
+		&-body {
+			@include mobile-text-body-footer;
+			padding: 15px;
+		}
 
-    &-form {
-      display: flex;
+		&-form {
+			display: flex;
 
-      &-text {
-        font-size: 1.5rem;
+			&-text {
+				font-size: 1.5rem;
 
-        padding: 10px;
-        height: 40px;
+				padding: 10px;
+				height: 40px;
 
-        resize: none;
+				resize: none;
+			}
+		}
 
-      }
-    }
+		&-btn {
+			@include mobile-text-body-footer;
+			background-color: black;
+			color: white;
+			padding: 10px 15px;
+			border: none;
+			margin: 0 1rem;
+			border-radius: 5px;
+		}
+	}
 
-    &-btn {
-      @include mobile-text-body-footer;
-      background-color: black;
-      color: white;
+	&_nav {
+		display: flex;
 
-      padding: 10px 15px;
-    }
-  }
+		&-btn {
+			@include mobile-text-buttons;
+			@include button;
+			margin: 10px;
+			width: auto;
+			padding: 12px 18px;
 
-  &_nav {
-    display: flex;
+			color: white;
+			border: solid white;
+			background-color: transparent;
 
-    &-btn {
-      @include mobile-text-buttons;
-      @include button;
-      margin: 10px;
-      width: auto;
-      padding: 12px 18px;
-  
-      color: white;
-      border: solid white;
-      background-color: transparent;
-  
-      &:hover {
-        background-color: white;
-        color: black;
-      }
-    }
-  }
+			&:hover {
+				background-color: white;
+				color: black;
+			}
+		}
+	}
 }
 
 footer {
-  background-color: #3c342f;
+	background-color: #3c342f;
 
-  position: absolute;
-  width: 100%;
-  padding: 35px 100px 35px 100px;
-  
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+	position: absolute;
+	width: 100%;
+	padding: 35px 100px 35px 100px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 }
 
 .footer__body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .footer__header {
-  width: 400px;
-  font-size: 30px;
-  text-align: center;
-  color: white;
+	width: 400px;
+	font-size: 30px;
+	text-align: center;
+	color: white;
 }
 
 .footer__p {
-  width: 500px;
-  font-size: medium;
-  text-align: center;
-  color: white;
+	width: 500px;
+	font-size: medium;
+	text-align: center;
+	color: white;
 }
 
 .newsletter__form {
-  display: flex;
+	display: flex;
 }
 
 .newsletter__textarea {
-  width: auto;
-  min-width: 250px;
-  resize: none;
+	width: auto;
+	min-width: 250px;
+	resize: none;
 
-  padding: 1em;
+	padding: 1em;
 }
 
 .newsletter__textarea::placeholder {
-  font-size: 15px;
+	font-size: 15px;
 }
 
 .message {
-  font-size: 10px;
-  color: white;
+	font-size: 10px;
+	color: white;
+}
+
+.footer-name {
+	width: 10rem;
+	margin-right: 0.5rem;
+	&:focus {
+		text-decoration: none;
+		border: none;
+		outline: none;
+	}
+}
+.footer-email {
+	width: 15rem;
+
+	&:focus {
+		text-decoration: none;
+		border: none;
+		outline: none;
+	}
 }

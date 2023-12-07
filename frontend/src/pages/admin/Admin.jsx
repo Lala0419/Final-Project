@@ -10,7 +10,7 @@ function Admin() {
   const switchAdmin = () => setAdminDisplay(adminDisplay === 'email' ? 'estimate' : 'email');
 
   return (
-    <div>
+    <div className="Admin">
       <span className="button" onClick={switchAdmin}>
         Show {adminDisplay === 'email' ? 'Estimate' : 'Email'} List
       </span>

@@ -3,14 +3,68 @@ import { Box, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import { useMemo } from 'react';
 import axios from 'axios';
+import { css } from '@emotion/react';
+
+const datagridSx = {
+  borderRadius: 2,
+  '& .MuiDataGrid-main': { borderRadius: 2 },
+  '& div[data-rowIndex][role="row"]': {
+    color: '#212529',
+    fontSize: 14,
+    //risky
+    minHeight: '70px !important',
+
+    '& div': {
+      minHeight: '70px !important',
+      // height: 50,
+      lineHeight: '25px !important'
+    }
+  },
+  '& .MuiDataGrid-virtualScrollerRenderZone': {
+    '& .MuiDataGrid-row': {
+      '&:nth-child(2n)': { backgroundColor: 'rgba(235, 235, 235, .7)' }
+    }
+  },
+  '& .MuiDataGrid-columnHeaders': {
+    backgroundColor: '#212529',
+    color: '#ffffff',
+    fontSize: 14,
+    height: 'unset !important'
+  },
+  '& .MuiDataGrid-columnHeaderTitle': {
+    whiteSpace: 'normal',
+    lineHeight: 'normal'
+  },
+
+  '& .MuiDataGrid-cellContent': {
+    whiteSpace: 'normal',
+    wordWrap: 'break-word',
+    textAlign: 'center'
+  },
+  '& .wrap-text-cell': {
+    whiteSpace: 'normal',
+    wordWrap: 'break-word',
+    display: 'flex',
+    alignItems: 'center' // Vertically center the content
+  },
+  '& .MuiDataGrid-row': {
+    display: 'flex',
+    alignItems: 'center' // Vertically center the row content
+  },
+  '& .MuiTablePagination-displayedRows': {
+    fontSize: 14
+  }
+};
+const wrapTextCellStyle = css`
+  white-space: normal;
+  word-wrap: break-word;
+`;
 
 const URL = process.env.REACT_APP_BACKEND_URL;
 const PORT = process.env.REACT_APP_PORT;
 
 const EstimateList = () => {
   const [estimateLists, setEstimateLists] = useState([]);
-
-  const [rowId, setRowId] = useState(null);
 
   //fetch all the estimates from database
   const getAllEstimates = () => {
@@ -40,17 +94,6 @@ const EstimateList = () => {
       updatedRow[field] = value;
       setEstimateLists(updatedEstimateLists);
 
-      // axios
-      //   .patch(`${URL}${PORT}/api/v1/customers/${row.id}`, {
-      //     ...row,
-      //     request_status: selectedOption.value
-      //   })
-      //   .then((res) => {
-      //     setEstimateRow(res.data);
-      //   })
-      //   .catch((error) => {
-      //     console.log('error', error);
-      //   });
       axios
         .patch(`${URL}${PORT}/api/v1/customers/${id}`, {
           request_status: value
@@ -71,23 +114,97 @@ const EstimateList = () => {
   };
   const columns = useMemo(
     () => [
-      { field: 'id', headerName: 'S/N', flex: 1, maxWidth: 100 },
-      { field: 'first_name', headerName: 'Name', flex: 1, maxWidth: 100 },
-      { field: 'last_name', headerName: 'Last Name', flex: 1, maxWidth: 100 },
-      { field: 'phone_number', headerName: 'Phone Number', flex: 1, maxWidth: 100 },
+      {
+        field: 'id',
+        headerName: 'S/N',
+        headerClassName: 'super-app-theme--header',
+        headerAlign: 'center',
+        align: 'center',
+        flex: 0.5,
+        maxWidth: 100
+      },
+      {
+        field: 'first_name',
+        headerName: 'Name',
+        headerClassName: 'super-app-theme--header',
+        headerAlign: 'center',
+        align: 'center',
+        flex: 1,
+        maxWidth: 100
+      },
+      {
+        field: 'last_name',
+        headerName: 'Last Name',
+        headerClassName: 'super-app-theme--header',
+        headerAlign: 'center',
+        align: 'center',
+        flex: 1,
+        maxWidth: 100
+      },
+      {
+        field: 'phone_number',
+        headerName: 'Phone Number',
+        headerClassName: 'super-app-theme--header',
+        headerAlign: 'center',
+        align: 'center',
+        flex: 1,
+        maxWidth: 150,
+        filterable: false,
+        disableColumnMenu: true,
+        sortable: false
+      },
       {
         field: 'email_address',
         headerName: 'Email Address',
-        flex: 1,
+        headerClassName: 'super-app-theme--header',
+        headerAlign: 'center',
+        align: 'center',
+        flex: 2,
         maxWidth: 400,
-        filterable: false
+        filterable: false,
+        disableColumnMenu: true,
+        sortable: false
       },
-      { field: 'home_address', headerName: 'Home Address', flex: 1, maxWidth: 400 },
-      { field: 'service', headerName: 'Service Rquested', flex: 1, maxWidth: 400 },
-      { field: 'additional_info', headerName: 'Additional Info', flex: 1, maxWidth: 400 },
+      {
+        field: 'home_address',
+        headerName: 'Home Address',
+        headerClassName: 'super-app-theme--header',
+        headerAlign: 'center',
+        align: 'center',
+        flex: 2,
+        maxWidth: 400,
+        disableColumnMenu: true,
+        sortable: false
+      },
+      {
+        field: 'service',
+        headerName: 'Service Rquested',
+        headerClassName: 'super-app-theme--header',
+        headerAlign: 'center',
+        align: 'center',
+        flex: 2.5,
+        maxWidth: 400,
+        disableColumnMenu: true,
+        sortable: false
+      },
+      {
+        field: 'additional_info',
+        headerName: 'Additional Info',
+        headerClassName: 'super-app-theme--header',
+        headerAlign: 'center',
+        align: 'center',
+        flex: 2.5,
+        maxWidth: 400,
+        disableColumnMenu: true,
+        sortable: false,
+        cellClassName: wrapTextCellStyle
+      },
       {
         field: 'request_status',
         headerName: 'Status',
+        headerClassName: 'super-app-theme--header',
+        headerAlign: 'center',
+        align: 'center',
         flex: 1,
         maxWidth: 150,
         type: 'singleSelect',
@@ -109,32 +226,31 @@ const EstimateList = () => {
     handleOption(params);
   };
   return (
-    <Box
-      sx={{
-        height: 400,
-        width: '100%'
-      }}
-    >
-      <Typography variant="h3" component="h3" sx={{ textAlign: 'center', mt: 3, mb: 3 }}>
-        EstimateList
+    <>
+      <Typography variant="h3" component="h3" sx={{ textAlign: 'left', mt: 3, mb: 3 }}>
+        Customer Estimate requests
       </Typography>
-      <div style={{ height: 300, width: '100%' }}>
+      <div style={{ height: 650, width: '100%' }}>
         <DataGrid
           rows={rows}
           columns={columns}
+          initialState={{
+            ...rows.initialState,
+            pagination: { paginationModel: { pageSize: 7 } }
+          }}
+          pageSizeOptions={[5, 10, 25]}
           onCellEditCommit={handleCellEditCommit}
           isCellEditable={() => true}
-          pageSize={5}
-          rowsPerPageOptions={[10, 15, 20]}
           loading={!estimateLists.length}
           getRowId={(row) => {
             const rowId = row.id;
             console.log('Row ID:', rowId);
             return rowId;
           }}
+          sx={datagridSx}
         />
       </div>
-    </Box>
+    </>
   );
 };
 

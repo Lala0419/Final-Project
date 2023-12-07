@@ -76,7 +76,7 @@ function ServicePage({
           </div>
           <div className="card_imgs_new">
             <div
-              className="card_imgs-item_new"
+              className="card_imgs-item_new_reverse"
               onClick={() => openModal([img_before_url, img_after_url])}
             >
               <div className='card_img_container'>

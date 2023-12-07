@@ -21,11 +21,13 @@ function Navigation() {
 
 			<div className="nav">
 				<div className="nav-left">
-					<img
-						className="nav-img"
-						src={logo}
-						alt="Logo for Property Brothers"
-					/>
+					<Link to="/home">
+						<img
+							className="nav-img"
+							src={logo}
+							alt="Logo for Property Brothers"
+						/>
+					</Link>
 				</div>
 
 				<div className="nav-right">
@@ -39,7 +41,9 @@ function Navigation() {
 					<Link to="/services" className="nav-right_button-link">
 						<button className="nav-button">Services</button>
 					</Link>
-					<button className="nav-button">Phone Call</button>
+					<a href="tel:2502167944" className="nav-button">
+						Phone Call
+					</a>
 					<Link to="/free-estimate" className="nav-right_button-link">
 						<button className="nav-button">Free Estimate</button>
 					</Link>

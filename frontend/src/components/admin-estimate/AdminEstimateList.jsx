@@ -28,25 +28,30 @@ const AdminEstimateList = () => {
 
 	return (
 		<div>
-			<h1>EstimateList</h1>
+			<h1>Estimate List</h1>
 			<div className=".table-responsive">
 				<table className="table table-hover table-lg">
 					<thead className="thead-dark ">
 						<tr>
 							<th scope="col">#</th>
-							<th scope="col">First_name</th>
-							<th scope="col">Last_name</th>
-							<th scope="col">Phone_Number</th>
-							<th scope="col">Email_address</th>
-							<th scope="col">Home_address</th>
-							<th scope="col">Additional_info</th>
-							<th scope="col">status</th>
+							<th scope="col">First Name</th>
+							<th scope="col">Last Name</th>
+							<th scope="col">Phone Number</th>
+							<th scope="col">Email Address</th>
+							<th scope="col">Home Address</th>
+							<th scope="col">Additional Info</th>
+							<th scope="col">Status</th>
 						</tr>
 					</thead>
 					<tbody>
-						{estimateLists.map((estimateList) => (
-							<ReadOnlyRow estimateList={estimateList} key={estimateList.id} />
-						))}
+						{estimateLists
+							.sort((a, b) => b.id - a.id)
+							.map((estimateList) => (
+								<ReadOnlyRow
+									estimateList={estimateList}
+									key={estimateList.id}
+								/>
+							))}
 					</tbody>
 				</table>
 			</div>

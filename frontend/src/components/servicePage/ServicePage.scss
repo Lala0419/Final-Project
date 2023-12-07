@@ -1,78 +1,165 @@
-@use "../../styles/partials/index" as *;
-@use "../../styles/partials/breakpoints" as breakpoints;
-
-// .card {
-// 	display: flex;
-// 	flex-direction: column;
-// 	justify-content: center;
-// 	align-items: center;
-// 	width: 360px;
-// 	margin: 2rem 0;
-// 	border-radius: 8px;
-// 	padding: 1rem;
-// 	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-
+.main_card {
+    display: flex;
+    justify-content: center;
+}
 
 .card {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	margin: 2rem 0;
-	border-radius: 8px;
-	padding: 1rem;
-	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: flex;
+    flex-direction: column; /* Change flex direction to column */
+    align-items: center; /* Center align the card on the page */
+    margin: 20px;
+  }
   
-	&_title {
-		@include mobile-text-section-header;
-		margin: 1rem 0 0.5rem 0;
-	}
+  .two-columns,
+  .two-columns-reverse {
+    display: flex;
+    flex-direction: row;
+    width:70%;
+    align-items: baseline;
+    align-content: center;
+    justify-content:center;
+  }
+  
+  .card_info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: left;
+    margin: 10px;
+    width:30%;
+    
+  }
+  
+  .card_title {
+    margin-bottom: 10px;
+  }
 
-	&_subtitle {
-		@include mobile-text-buttons;
-		font-size: 1.4rem;
-	}
+  .service-title{
+    text-align: left;
+    
+  }
+  
+  .card_desc {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .card_imgs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center align images within the columns */
+  }
+  
+  .card_imgs-item {
+    cursor: pointer;
+    margin-right: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .card_imgs-item img {
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card_imgs-item:hover img {
+    transform: scale(3.1);
+  }
+  
+  .card_imgs-item--caption {
+    font-size: 18px; /* Increased text size */
+    font-weight: bold;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 80%;
+    width: auto; /* Set width to auto */
+    max-height: 80%; /* Set a max height to make it scrollable if needed */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
+    background-color: rgba(48, 60, 60, 0.8); /* Transparent background */
+  }
 
-	&_desc {
-		@include mobile-text-body-footer;
-		margin: 1.5rem 1rem;
-		text-align: center;
-	}
+  .modal_img {
+    width: 100%; /* Set width to 100% to make sure it fits inside the modal */
+    height: auto; /* Set height to auto to maintain the aspect ratio */
+    max-width: 100%; /* Ensure the image doesn't exceed its natural size */
+    margin-bottom: 20px;
+  }
 
-	&_imgs {
-		display: flex;
-		flex-direction: row;
-		margin-top: 2rem;
-	
-		&-item {
-		  display: flex;
-		  flex-direction: column;
-		  justify-content: center;
-		  align-items: center;
-	
-		  &--caption {
-			padding: 1rem;
-		  }
-	
-		  &--img {
-			margin: 1rem;
-			height: 17rem;
-			width: 15rem;
-		  }
-	  }
-	
-	  &.two-columns {
-		flex-direction: row;
-	
-		&_desc {
-		  width: 50%;
-		  padding-right: 1rem;
-		}
-	
-		&_imgs {
-		  width: 50%;
-		}
-	  }
-	}
-}
+
+  
+  .modal_close_btn {
+    align-self: flex-end;
+    padding: 7px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border: none;
+    font-size: 14px;
+  }
+  
+  .modal_nav_btn {
+    margin-top: 10px;
+    padding: 7px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border: none;
+    font-size: 14px;
+  }
+
+.modal_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .modal_next_btn {
+    align-self: flex-end;
+    padding: 7px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border: none;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+
+.modal_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .modal_nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .modal_prev_btn,
+  .modal_next_btn {
+    padding: 7px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border: none;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  .modal_prev_btn {
+    margin-right: 20px;
+  }
+  
+  .modal_next_btn {
+    margin-left: 20px;
+  }
+   

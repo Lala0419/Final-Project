@@ -1,165 +1,260 @@
-.main_card {
+// ServicePageNew.scss
+@use "../../styles/partials/index" as *;
+@use "../../styles/partials/breakpoints" as breakpoints;
+
+.main_card_new {
+  height: 25%;
+  width: 100%;
+  max-width: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  transition: transform 0.5s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  @include breakpoints.large {
+    &_title {
+      @include mobile-text-section-header;
+      font-size: 2rem;
+      margin: 1rem 0 0.5rem 0;
+    }
+  }
+
+  &_title {
+    @include mobile-text-section-header;
+    font-size: 1.7rem;
+    margin: 1rem 0 0.5rem 0;
+  }
+
+  &_subtitle {
+    @include mobile-text-buttons;
+    font-weight: 400;
+    line-height: 0;
+    padding: 0 1rem;
+  }
+
+  &_desc {
+    @include mobile-text-body-footer;
+    margin: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  &_imgs {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    margin-top: 2rem;
+
+    &_item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @include mobile-text-body-footer;
+
+      &_caption {
+        padding: 1rem;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      &_img {
+        padding: 1rem;
+        height: 14rem;
+        width: 12rem;
+        @include breakpoints.large {
+          max-width: 17rem;
+        }
+      }
+    }
+  }
+}
+.two-columns-reverse_new .card_info_new{
+    float: right;
+}
+.card_container_new {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 20px;
+  @include breakpoints.medium {
+    flex-direction: column;
+  }
 }
 
-.card {
-    display: flex;
-    flex-direction: column; /* Change flex direction to column */
-    align-items: center; /* Center align the card on the page */
-    margin: 20px;
-  }
-  
-  .two-columns,
-  .two-columns-reverse {
-    display: flex;
-    flex-direction: row;
-    width:70%;
-    align-items: baseline;
-    align-content: center;
-    justify-content:center;
-  }
-  
-  .card_info {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    text-align: left;
-    margin: 10px;
-    width:30%;
-    
-  }
-  
-  .card_title {
-    margin-bottom: 10px;
+.card_img_container{
+    width:40%;
+    display:inline-block;
+}
+
+.card_new {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
   }
 
-  .service-title{
-    text-align: left;
-    
-  }
-  
-  .card_desc {
-    margin-bottom: 20px;
-    margin-top: 20px;
-    text-align: left;
-  }
-  
-  .card_imgs {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; /* Center align images within the columns */
-  }
-  
-  .card_imgs-item {
-    cursor: pointer;
-    margin-right: 10px;
-    overflow: hidden;
-    border-radius: 8px;
-  }
-  
-  .card_imgs-item img {
+  @include breakpoints.medium {
     width: 100%;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .card_imgs-item:hover img {
-    transform: scale(3.1);
-  }
-  
-  .card_imgs-item--caption {
-    font-size: 18px; /* Increased text size */
-    font-weight: bold;
-  }
-  
-  .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    max-width: 80%;
-    width: auto; /* Set width to auto */
-    max-height: 80%; /* Set a max height to make it scrollable if needed */
-    overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
-    background-color: rgba(48, 60, 60, 0.8); /* Transparent background */
-  }
-
-  .modal_img {
-    width: 100%; /* Set width to 100% to make sure it fits inside the modal */
-    height: auto; /* Set height to auto to maintain the aspect ratio */
-    max-width: 100%; /* Ensure the image doesn't exceed its natural size */
     margin-bottom: 20px;
   }
+}
 
+.card_info_new {
+  text-align: left;
+  margin: 2% 1%;
 
-  
-  .modal_close_btn {
-    align-self: flex-end;
-    padding: 7px;
-    cursor: pointer;
-    background-color: #f8f9fa;
-    border: none;
-    font-size: 14px;
-  }
-  
-  .modal_nav_btn {
-    margin-top: 10px;
-    padding: 7px;
-    cursor: pointer;
-    background-color: #f8f9fa;
-    border: none;
-    font-size: 14px;
-  }
-
-.modal_title {
-    font-size: 20px;
-    font-weight: bold;
+  h2 {
+    font-size: 1.8rem;
     margin-bottom: 10px;
-    text-align: center;
   }
-  
-  .modal_next_btn {
-    align-self: flex-end;
-    padding: 7px;
-    cursor: pointer;
-    background-color: #f8f9fa;
-    border: none;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
+  width: 40%;
+  display:inline-block;
 
-.modal_title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
+  h3 {
+    font-size: 1.5rem;
   }
+
+  p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+}
+
+.card_imgs_container_new {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+
+.card_imgs_new {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  width: 50%;
+  padding: 0 1.5rem;
+}
+
+.card_imgs-item_new {
+  cursor: pointer;
+  margin-right: 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  width: 90%;
+  display:flex;
+  justify-content: flex-end;
+}
+
+.card_imgs-item--img_new {
+  width: 80%;
+  transition: transform 0.3s ease-in-out;
   
-  .modal_nav {
-    display: flex;
-    align-items: center;
-  }
-  
-  .modal_prev_btn,
-  .modal_next_btn {
-    padding: 7px;
-    cursor: pointer;
-    background-color: #f8f9fa;
-    border: none;
-    font-size: 20px;
-    margin-top: 10px;
-  }
-  
-  .modal_prev_btn {
-    margin-right: 20px;
-  }
-  
-  .modal_next_btn {
-    margin-left: 20px;
-  }
-   
+}
+
+.card_imgs-item:hover img {
+  transform: scale(1.1);
+}
+
+.card_imgs-item--caption_new {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal_new {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 80%;
+  width: auto;
+  max-height: 80%;
+  overflow-y: auto;
+  background-color: #ffffff; /* Light background color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.modal_content_new {
+  position: relative;
+}
+
+.modal_img_new {
+  width: 100%;
+  height: 90%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-radius: 8px; /* Rounded corners for images */
+}
+
+.modal_close_btn_new{
+    position:absolute;
+    top:5%;
+    right:10%;
+    z-index: 1000;
+  align-self:flex-end;
+  background-color:rgba($color: #000000, $alpha: 0.6) ; /* Dark button background color */
+  color: #ffffff; /* Light button text color */
+  border: none;
+  font-size: 14px;
+  margin-top: 10px;
+  border-radius: 5px; /* Rounded corners for buttons */
+  transition: background-color 0.3s ease-in-out; /* Smooth transition for button color */
+}
+.modal_nav_btn_new {
+  padding: 10px;
+  align-self:flex-end;
+  cursor: pointer;
+  background-color:rgba($color: #000000, $alpha: 0.6) ; /* Dark button background color */
+  color: #ffffff; /* Light button text color */
+  border: none;
+  font-size: 14px;
+  margin-top: 10px;
+  border-radius: 5px; /* Rounded corners for buttons */
+  transition: background-color 0.3s ease-in-out; /* Smooth transition for button color */
+}
+
+.modal_nav_btn_left,
+.modal_nav_btn_right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  color: #ffffff;
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.modal_nav_btn_left {
+  left: 10px;
+}
+
+.modal_nav_btn_right {
+  right: 10px;
+}
+
+.modal_nav_btn_new:hover,
+.modal_close_btn_new:hover,
+.modal_nav_btn_left:hover,
+.modal_nav_btn_right:hover {
+  background-color: #495057; /* Darker button background color on hover */
+}

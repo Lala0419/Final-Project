@@ -1,4 +1,5 @@
 import React from "react";
+import "./Service.scss";
 import ServicePage from "../../components/servicePage/ServicePage";
 
 import soft_wash_before from "../../assets/soft_wash_before.jpg";
@@ -78,9 +79,9 @@ function Service() {
   ];
 
   return (
-    <div className="serviceMain_bottom">
-      <h4 className="serviceMain_bottom-title">Our Services</h4>
-      <div className="serviceMain_bottom-cards">
+    <div className="serviceMain_bottom_new">
+      <h4 className="serviceMain_bottom-title_new">Our Services</h4>
+      <div className="serviceMain_bottom-cards_new">
         {services.map((service) => (
           <ServicePage
             id={service.id}

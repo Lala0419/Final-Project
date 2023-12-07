@@ -1,7 +1,7 @@
 require 'faker'
 
 
-20.times do
+10.times do
 	fn=Faker::Name.first_name
 	ln=Faker::Name.last_name
  Subscriber.create(

@@ -1,34 +1,10 @@
-// /* Add these styles to your CSS file */
-// // Service SCSS 
-// .card {
-//     /* Existing styles... */
-//     display: flex;
-//     flex-direction: column;
-//   }
-  
-//   .card.two-columns {
-//     flex-direction: row;
-//   }
-  
-//   .card_imgs {
-//     display: flex;
-//     justify-content: space-between;
-//   }
-  
-//   .card_imgs-item {
-//     cursor: pointer;
-//   }
-  
-//   .modal {
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     background-color: white;
-//     padding: 20px;
-//   }
-  
-//   .overlay {
-//     background-color: rgba(0, 0, 0, 0.5);
-//   }
-  
+.serviceMain_bottom_new{
+width: 70%;
+margin:auto;
+}
+.serviceMain_bottom-title_new{
+  padding:2%;
+  text-align: center;
+  font-weight: 600;
+
+}
